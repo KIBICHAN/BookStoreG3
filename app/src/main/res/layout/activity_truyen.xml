@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
         app:title="Truyện"
-        android:background="#ff00dfff"
+        android:background="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">

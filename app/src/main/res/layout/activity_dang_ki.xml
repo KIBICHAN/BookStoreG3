@@ -5,126 +5,202 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DangKiActivity">
-    <TextView
-        android:id="@+id/txtdangnhap"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Đăng kí"
-        android:textSize="25sp"
-        android:textColor="@color/colortext"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
+
+    <LinearLayout
+        android:id="@+id/ll_textdangky"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtdangnhap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Đăng ký"
+            android:textColor="@color/colortext"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txttieptuc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Nhập các thông tin bên dưới đây."
+            android:textColor="#E1000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
     <com.google.android.material.textfield.TextInputLayout
-        app:layout_constraintTop_toBottomOf="@+id/txtdangnhap"
-        android:layout_marginTop="5dp"
         android:id="@+id/line1"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/ll_textdangky">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:fontFamily="@font/gotham"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
-        app:layout_constraintTop_toBottomOf="@+id/line1"
-        android:layout_marginTop="5dp"
         android:id="@+id/line8"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/line1">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username"
-            android:hint="Username"
-            android:inputType="textEmailAddress"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
+            android:fontFamily="@font/gotham"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        app:layout_constraintTop_toBottomOf="@+id/line8"
-        android:layout_marginTop="5dp"
         android:id="@+id/line2"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/line8">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pass"
-        android:hint="Pass"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:inputType="textPassword"
-        android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
-        android:drawablePadding="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+            android:drawablePadding="5dp"
+
+            android:fontFamily="@font/gotham"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        app:layout_constraintTop_toBottomOf="@+id/line2"
-        android:layout_marginTop="5dp"
         android:id="@+id/line3"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/line2">
+
         <com.google.android.material.textfield.TextInputEditText
-            android:hint="Pass"
             android:id="@+id/repass"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
             android:drawablePadding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
+            android:fontFamily="@font/gotham"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        app:layout_constraintTop_toBottomOf="@+id/line3"
-        android:layout_marginTop="5dp"
         android:id="@+id/line4"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/line3">
+
         <com.google.android.material.textfield.TextInputEditText
-            android:hint="Mobile"
             android:id="@+id/mobile"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/ic_baseline_smartphone_24"
             android:drawablePadding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
+            android:fontFamily="@font/gotham"
+            android:hint="Mobile"
+            android:inputType="number"
+            android:paddingLeft="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btndangki"
-        app:layout_constraintTop_toBottomOf="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/background_button"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="10dp"
         android:text="Đăng kí"
         android:textColor="@android:color/white"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/line4"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btndangki">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri"
+            android:text="Đã có tài khoản? "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtdangki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/calibri"
+            android:text="Đăng nhập ngay"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

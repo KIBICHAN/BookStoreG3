@@ -18,60 +18,66 @@
             android:orientation="vertical">
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toobarmanhinhchinh"
-                android:background="#ff00dfff"
+                android:background="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="Home">
+                app:title="Trang chủ">
                 <LinearLayout
                     android:layout_gravity="right"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="?attr/actionBarSize">
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:layout_width="230dp"
+                        android:layout_height="match_parent"
+                        android:hint="Tìm kiếm"
+                        android:padding="10dp"
+                        android:drawableRight="@drawable/ic_baseline_search_24"
+                        android:background="@drawable/custom_edittext"
+                        android:layout_margin="5dp"/>
+
                     <ImageView
-                        android:id="@+id/imgsearch"
-                        android:layout_marginRight="15dp"
-                        android:src="@drawable/ic_search_24"
-                        android:layout_width="wrap_content"
-                        android:layout_height="?attr/actionBarSize"/>
-                    <FrameLayout
-                        android:id="@+id/framegiohang"
+                        android:src="@drawable/ic_cart_24"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:layout_width="55dp"
-                        android:layout_height="?attr/actionBarSize">
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:src="@drawable/ic_cart_24"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"/>
-                    </FrameLayout>
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
 
                 </LinearLayout>
 
             </androidx.appcompat.widget.Toolbar>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="15dp">
             <ViewFlipper
                 android:id="@+id/viewlipper"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
             </ViewFlipper>
+            </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:background="#5992d2"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:textSize="20sp"
+                    android:textSize="25sp"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="#070000"
                     android:textStyle="bold"
-                    android:text="Sản phẩm mới nhất"
+                    android:fontFamily="@font/calibri"
+                    android:text="Sách mới nhất"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerview"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -87,7 +93,6 @@
                 android:id="@+id/listviewmanhinhchinh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
         </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 
