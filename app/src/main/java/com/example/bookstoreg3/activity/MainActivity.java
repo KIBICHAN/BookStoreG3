@@ -69,17 +69,13 @@ public class MainActivity extends AppCompatActivity implements SanPhamMoiAdapter
 
         recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
 
-        Resources res = getResources();
-        Drawable sach1 = ResourcesCompat.getDrawable(res, R.drawable.bookcover1, null);
-        Drawable sach2 = ResourcesCompat.getDrawable(res, R.drawable.bookcover2, null);
-
-        SanPhamMoi sanPhamMoi = new SanPhamMoi(sach1, "BOOK COVER DESIGN", "42.000đ");
-        SanPhamMoi sanPhamMoi1 = new SanPhamMoi(sach2, "MY BOOK COVER", "34.000đ");
+        SanPhamMoi sanPhamMoi = new SanPhamMoi("https://m.media-amazon.com/images/I/41gr3r3FSWL.jpg", "BOOK COVER DESIGN", "42.000đ");
+        SanPhamMoi sanPhamMoi1 = new SanPhamMoi("https://edit.org/images/cat/book-covers-big-2019101610.jpg", "MY BOOK COVER", "34.000đ");
 
         SanPhamMoiData.add(sanPhamMoi);
         SanPhamMoiData.add(sanPhamMoi1);
 
-        sanPhamMoiAdapter = new SanPhamMoiAdapter(SanPhamMoiData, this);
+        sanPhamMoiAdapter = new SanPhamMoiAdapter(getApplicationContext(), SanPhamMoiData, this);
 
         recyclerview.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerview.setAdapter(sanPhamMoiAdapter);

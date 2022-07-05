@@ -1,6 +1,8 @@
 package com.example.bookstoreg3.adapter;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +12,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.bookstoreg3.R;
 import com.example.bookstoreg3.model.SanPhamMoi;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.MyHolder>{
+    Context context;
     ArrayList<SanPhamMoi> sanPhamMoiArrayList;
     private itemClickListener mItemClickListener;
 
-    public SanPhamMoiAdapter(ArrayList<SanPhamMoi> sanPhamMoiArrayList, itemClickListener clickListener) {
+    public SanPhamMoiAdapter(Context context, ArrayList<SanPhamMoi> sanPhamMoiArrayList, itemClickListener clickListener) {
+        this.context = context;
         this.sanPhamMoiArrayList = sanPhamMoiArrayList;
         this.mItemClickListener = clickListener;
     }
@@ -33,7 +39,7 @@ public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull SanPhamMoiAdapter.MyHolder holder, int position) {
-        holder.itemsp_image.setImageDrawable(sanPhamMoiArrayList.get(position).getHinhanh());
+        Glide.with(context).load(sanPhamMoiArrayList.get(position).getHinhanh()).into(holder.itemsp_image);
         holder.itemsp_ten.setText(sanPhamMoiArrayList.get(position).getTensp());
         holder.itemsp_gia.setText(sanPhamMoiArrayList.get(position).getGiasp());
     }
