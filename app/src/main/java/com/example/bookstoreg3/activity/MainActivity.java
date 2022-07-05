@@ -1,12 +1,7 @@
 package com.example.bookstoreg3.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,9 +10,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.ViewFlipper;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.bookstoreg3.R;
 import com.example.bookstoreg3.adapter.ViewPagerAdapter;
@@ -25,11 +24,9 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    private ViewFlipper viewlipper;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Animation slidein, slideout;
+    private ViewFlipper viewlipper;
     private EditText edt_timkiem;
     private ImageView iv_ic_cart_24, iv_ic_baseline_menu_24;
     private TabLayout tabview;
@@ -37,7 +34,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ViewPagerAdapter viewPagerAdapter;
     private DrawerLayout drawerLayout;
 
-    public MainActivity(){}
+    public MainActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,14 +93,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         new TabLayoutMediator(tabview, viewpager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                switch (position){
-                    case 0: tab.setText("Mới Nhất");
+                switch (position) {
+                    case 0:
+                        tab.setText("Mới Nhất");
                         break;
-                    case 1: tab.setText("Thịnh Hành");
+                    case 1:
+                        tab.setText("Thịnh Hành");
                         break;
                 }
             }
         }).attach();
+    }
+
+    private boolean isPackageAvailable(String name) {
+        boolean available = true;
+        try {
+            getPackageManager().getPackageInfo(name, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            available = false;
+        }
+        return available;
     }
 
     @Override
@@ -117,11 +127,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         }
         if (id == R.id.nav_message) {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_VIEW);
-            intent.setPackage("com.facebook.orca");
-            intent.setData(Uri.parse("http://m.me/" + "hoangson200015"));
-            startActivity(intent);
+            if (isPackageAvailable("com.facebook.orca")) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setPackage("com.facebook.orca");
+                intent.setData(Uri.parse("https://m.me/hoangson200015"));
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://m.me/hoangson200015"));
+                startActivity(intent);
+            }
         }
         return true;
     }

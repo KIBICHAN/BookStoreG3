@@ -17,6 +17,7 @@
     <string name="hint_search_long">Nhập tên sách bạn muốn tìm</string>
     <string name="hint_search_short">Tìm kiếm</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chat_support">https://m.me/hoangson200015</string>
+    <string name="chat_package_name">com.facebook.orca</string>
 </resources>
