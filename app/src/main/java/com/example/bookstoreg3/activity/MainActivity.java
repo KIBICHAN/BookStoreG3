@@ -1,21 +1,64 @@
 package com.example.bookstoreg3.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
 import com.example.bookstoreg3.R;
+import com.example.bookstoreg3.adapter.SanPhamMoiAdapter;
+import com.example.bookstoreg3.model.SanPhamMoi;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements SanPhamMoiAdapter.itemClickListener{
     private ViewFlipper viewlipper;
     Animation slidein, slideout;
+    private RecyclerView recyclerview;
+    private SanPhamMoiAdapter sanPhamMoiAdapter;
+    private EditText edt_timkiem;
+    private ImageView iv_ic_cart_24;
+
+    public MainActivity(){}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        edt_timkiem = (EditText) findViewById(R.id.edt_timkiem);
+        edt_timkiem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        iv_ic_cart_24 = (ImageView) findViewById(R.id.iv_ic_cart_24);
+        iv_ic_cart_24.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GioHangActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ArrayList<SanPhamMoi> SanPhamMoiData = new ArrayList<>();
+
         viewlipper = (ViewFlipper) findViewById(R.id.viewlipper);
         slidein = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
         slideout = AnimationUtils.loadAnimation(this, R.anim.slide_out_right);
@@ -23,5 +66,28 @@ public class MainActivity extends AppCompatActivity {
         viewlipper.setOutAnimation(slideout);
         viewlipper.setFlipInterval(10000);
         viewlipper.setAutoStart(true);
+
+        recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
+
+        Resources res = getResources();
+        Drawable sach1 = ResourcesCompat.getDrawable(res, R.drawable.bookcover1, null);
+        Drawable sach2 = ResourcesCompat.getDrawable(res, R.drawable.bookcover2, null);
+
+        SanPhamMoi sanPhamMoi = new SanPhamMoi(sach1, "BOOK COVER DESIGN", "42.000đ");
+        SanPhamMoi sanPhamMoi1 = new SanPhamMoi(sach2, "MY BOOK COVER", "34.000đ");
+
+        SanPhamMoiData.add(sanPhamMoi);
+        SanPhamMoiData.add(sanPhamMoi1);
+
+        sanPhamMoiAdapter = new SanPhamMoiAdapter(SanPhamMoiData, this);
+
+        recyclerview.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerview.setAdapter(sanPhamMoiAdapter);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(this, ChiTietActivity.class);
+        startActivity(intent);
     }
 }

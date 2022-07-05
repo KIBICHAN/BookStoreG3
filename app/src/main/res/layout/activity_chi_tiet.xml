@@ -4,68 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChiTietActivity">
+    tools:context=".activity.ChiTietActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
-        android:background="#FFFFFF"
-        app:title="Chi tiết sản phẩm"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-            <ImageView
-                android:src="@drawable/ic_cart_24"
-                android:layout_marginRight="8dp"
-                android:layout_gravity="right"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Chi tiết sản phẩm">
+
+        <ImageView
+            android:id="@+id/iv_ic_cart_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_cart_24" />
 
     </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/toobar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        app:layout_constraintTop_toBottomOf="@id/toobar">
+
         <ImageView
             android:id="@+id/imgchitiet"
-            android:src="@drawable/iconnew_w512"
             android:layout_width="150dp"
-            android:layout_height="200dp"/>
+            android:layout_height="200dp"
+            android:src="" />
+
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_marginLeft="5dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/txttensp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:gravity="left"
-                android:text="Tên sản phẩm"
-                android:fontFamily="@font/calibri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"/>
-            <TextView
-                android:id="@+id/txtgiasp"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:text="@string/gi_25000"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/calibri"
+                android:gravity="left"
+                android:text="Tên sản phẩm"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtgia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Giá: "
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtgiasp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="0đ"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_marginTop="5dp"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/spinner"
-                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/spinner"
+                android:gravity="center" />
 
             <Button
                 android:id="@+id/btnthemvaogiohang"
@@ -73,41 +98,44 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="80dp"
-                android:textSize="16sp"
-                android:text="@string/th_m_v_o_gi_h_ng"
                 android:background="@drawable/background_button"
-                android:paddingHorizontal="20dp"
                 android:drawableLeft="@drawable/ic_baseline_add_to_photos_24"
+                android:paddingHorizontal="20dp"
+                android:text="@string/th_m_v_o_gi_h_ng"
                 android:textColor="@android:color/white"
-                />
+                android:textSize="16sp" />
 
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginTop="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/layout1"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout1">
+
         <TextView
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="Mô tả chi tiết sản phẩm"
-            android:fontFamily="@font/calibri"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/calibri"
+            android:text="Mô tả chi tiết sản phẩm"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/txtmotachitiet"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp" />
         </ScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
