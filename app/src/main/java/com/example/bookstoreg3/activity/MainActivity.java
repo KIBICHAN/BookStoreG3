@@ -2,16 +2,11 @@ package com.example.bookstoreg3.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -19,12 +14,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.example.bookstoreg3.R;
-import com.example.bookstoreg3.adapter.SanPhamMoiAdapter;
 import com.example.bookstoreg3.adapter.ViewPagerAdapter;
-import com.example.bookstoreg3.model.SanPhamMoi;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -34,10 +28,11 @@ public class MainActivity extends AppCompatActivity{
     private ViewFlipper viewlipper;
     Animation slidein, slideout;
     private EditText edt_timkiem;
-    private ImageView iv_ic_cart_24;
+    private ImageView iv_ic_cart_24, iv_ic_baseline_menu_24;
     private TabLayout tabview;
     private ViewPager2 viewpager2;
     private ViewPagerAdapter viewPagerAdapter;
+    private DrawerLayout drawerLayout;
 
     public MainActivity(){}
 
@@ -52,6 +47,16 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
+
+        iv_ic_baseline_menu_24 = (ImageView) findViewById(R.id.iv_ic_baseline_menu_24);
+        iv_ic_baseline_menu_24.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
             }
         });
 
