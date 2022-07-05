@@ -1,22 +1,29 @@
 package com.example.bookstoreg3.activity;
 
 import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
 
 import com.example.bookstoreg3.R;
+import com.example.bookstoreg3.databinding.ActivityMapsBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.bookstoreg3.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    /**
+     * dummy store
+     * 10.841880, 106.810942
+     */
+    private final LatLng LC1 = new LatLng(10.841880, 106.810942);
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private Marker markerLC1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +52,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng fpt = new LatLng(10.841318, 106.809880);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.addMarker(new MarkerOptions().position(fpt).title("FPT UNIVERSITY").snippet("Vị trí của bạn."));
+        Float zoomLevel = 15.5f;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fpt, zoomLevel));
+        googleMap.setTrafficEnabled(true);
+
+        markerLC1 = mMap.addMarker(new MarkerOptions().position(LC1).title("Open Books").snippet("Long Thạnh Mỹ, District 9, Ho Chi Minh City, Vietnam"));
+        markerLC1.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.logopin));
+        markerLC1.setTag(0);
     }
 }
