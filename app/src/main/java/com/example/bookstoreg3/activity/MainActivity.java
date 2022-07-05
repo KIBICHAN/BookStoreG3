@@ -1,10 +1,13 @@
 package com.example.bookstoreg3.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -20,17 +23,21 @@ import android.widget.ViewFlipper;
 
 import com.example.bookstoreg3.R;
 import com.example.bookstoreg3.adapter.SanPhamMoiAdapter;
+import com.example.bookstoreg3.adapter.ViewPagerAdapter;
 import com.example.bookstoreg3.model.SanPhamMoi;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements SanPhamMoiAdapter.itemClickListener{
+public class MainActivity extends AppCompatActivity{
     private ViewFlipper viewlipper;
     Animation slidein, slideout;
-    private RecyclerView recyclerview;
-    private SanPhamMoiAdapter sanPhamMoiAdapter;
     private EditText edt_timkiem;
     private ImageView iv_ic_cart_24;
+    private TabLayout tabview;
+    private ViewPager2 viewpager2;
+    private ViewPagerAdapter viewPagerAdapter;
 
     public MainActivity(){}
 
@@ -57,8 +64,6 @@ public class MainActivity extends AppCompatActivity implements SanPhamMoiAdapter
             }
         });
 
-        ArrayList<SanPhamMoi> SanPhamMoiData = new ArrayList<>();
-
         viewlipper = (ViewFlipper) findViewById(R.id.viewlipper);
         slidein = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
         slideout = AnimationUtils.loadAnimation(this, R.anim.slide_out_right);
@@ -67,23 +72,22 @@ public class MainActivity extends AppCompatActivity implements SanPhamMoiAdapter
         viewlipper.setFlipInterval(10000);
         viewlipper.setAutoStart(true);
 
-        recyclerview = (RecyclerView) findViewById(R.id.recyclerview);
+        tabview = (TabLayout) findViewById(R.id.tabview);
+        viewpager2 = (ViewPager2) findViewById(R.id.viewpager2);
 
-        SanPhamMoi sanPhamMoi = new SanPhamMoi("https://m.media-amazon.com/images/I/41gr3r3FSWL.jpg", "BOOK COVER DESIGN", "42.000đ");
-        SanPhamMoi sanPhamMoi1 = new SanPhamMoi("https://edit.org/images/cat/book-covers-big-2019101610.jpg", "MY BOOK COVER", "34.000đ");
+        viewPagerAdapter = new ViewPagerAdapter(this);
+        viewpager2.setAdapter(viewPagerAdapter);
 
-        SanPhamMoiData.add(sanPhamMoi);
-        SanPhamMoiData.add(sanPhamMoi1);
-
-        sanPhamMoiAdapter = new SanPhamMoiAdapter(getApplicationContext(), SanPhamMoiData, this);
-
-        recyclerview.setLayoutManager(new GridLayoutManager(this, 2));
-        recyclerview.setAdapter(sanPhamMoiAdapter);
-    }
-
-    @Override
-    public void onItemClick(int position) {
-        Intent intent = new Intent(this, ChiTietActivity.class);
-        startActivity(intent);
+        new TabLayoutMediator(tabview, viewpager2, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch (position){
+                    case 0: tab.setText("Mới Nhất");
+                        break;
+                    case 1: tab.setText("Thịnh Hành");
+                        break;
+                }
+            }
+        }).attach();
     }
 }

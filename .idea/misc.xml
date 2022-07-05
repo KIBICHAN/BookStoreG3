@@ -10,11 +10,13 @@
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_dang_ki.xml" value="0.2222222222222222" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_dang_nhap.xml" value="0.25" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_gio_hang.xml" value="0.25" />
-        <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_search.xml" value="0.25" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_thanh_toan.xml" value="0.25" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_tieu_thuyet.xml" value="0.25" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/activity_truyen.xml" value="0.25" />
+        <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/fragment_moi_nhat.xml" value="0.2222222222222222" />
+        <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/fragment_thinh_hanh.xml" value="0.20972222222222223" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/item_giohang.xml" value="0.25" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/item_loading.xml" value="0.25" />
         <entry key="..\:/prm391/BookStoreG3/app/src/main/res/layout/item_sanpham.xml" value="0.25" />
