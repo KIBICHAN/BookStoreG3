@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DangKiActivity">
+    tools:context=".activity.DangKiActivity">
 
     <LinearLayout
         android:id="@+id/ll_textdangky"
@@ -41,125 +41,89 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/line1"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+    <EditText
+        android:id="@+id/email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/ll_textdangky">
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/gotham"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@id/ll_textdangky" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/custom_edittext"
-            android:drawableLeft="@drawable/ic_email"
-            android:drawablePadding="5dp"
-            android:fontFamily="@font/gotham"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="10dp" />
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/line8"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <EditText
+        android:id="@+id/username"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/line1">
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/gotham"
+        android:hint="Username"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        tools:layout_editor_absoluteX="20dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/custom_edittext"
-            android:drawableLeft="@drawable/ic_baseline_person_24"
-            android:drawablePadding="5dp"
-
-            android:fontFamily="@font/gotham"
-            android:hint="Username"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="10dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/line2"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <EditText
+        android:id="@+id/pass"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/line8">
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+        android:drawablePadding="5dp"
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/pass"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/custom_edittext"
-            android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
-            android:drawablePadding="5dp"
-
-            android:fontFamily="@font/gotham"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp" />
+        android:fontFamily="@font/gotham"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/line3"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <EditText
+        android:id="@+id/repass"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/line2">
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+        android:drawablePadding="5dp"
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/repass"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/custom_edittext"
-            android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
-            android:drawablePadding="5dp"
+        android:fontFamily="@font/gotham"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
-            android:fontFamily="@font/gotham"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/line4"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <EditText
+        android:id="@+id/mobile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/line3">
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/ic_baseline_smartphone_24"
+        android:drawablePadding="5dp"
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mobile"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/custom_edittext"
-            android:drawableLeft="@drawable/ic_baseline_smartphone_24"
-            android:drawablePadding="5dp"
+        android:fontFamily="@font/gotham"
+        android:hint="Mobile"
+        android:inputType="number"
+        android:paddingLeft="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/repass" />
 
-            android:fontFamily="@font/gotham"
-            android:hint="Mobile"
-            android:inputType="number"
-            android:paddingLeft="10dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/btndangki"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -169,7 +133,7 @@
         android:text="Đăng kí"
         android:textColor="@android:color/white"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/line4"
+        app:layout_constraintTop_toBottomOf="@+id/mobile"
         tools:layout_editor_absoluteX="20dp" />
 
     <LinearLayout

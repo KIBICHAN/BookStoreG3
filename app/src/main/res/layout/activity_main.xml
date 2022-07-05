@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerlayout"
         android:layout_width="match_parent"
@@ -40,8 +40,8 @@
                         android:src="@drawable/ic_cart_24"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"/>
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"/>
 
                 </LinearLayout>
 
@@ -55,10 +55,25 @@
                 android:id="@+id/viewlipper"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/promobanner1"
+                    android:scaleType="centerCrop"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/promobanner2"
+                    android:scaleType="centerCrop"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/promobanner3"
+                    android:scaleType="centerCrop"/>
             </ViewFlipper>
             </androidx.cardview.widget.CardView>
             <LinearLayout
-                android:background="#5992d2"
+                android:background="@color/colortext"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
