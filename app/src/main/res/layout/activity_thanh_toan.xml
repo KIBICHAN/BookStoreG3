@@ -32,7 +32,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
-
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_baseline_attach_money_24"
@@ -118,7 +117,7 @@
             android:id="@+id/edtdiachi"
             android:drawableLeft="@drawable/ic_baseline_add_location_24"
             android:drawablePadding="5dp"
-            android:hint="Nhập địa chỉ giao hàng"
+            android:hint="@string/hint_address"
             android:textColorHint="@android:color/holo_red_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -134,7 +133,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/background_button"
-        android:text="Đặt hàng"
+        android:text="@string/buy_now"
         android:textColor="@android:color/white"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"

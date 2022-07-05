@@ -1,6 +1,18 @@
 <resources>
-    <string name="app_name">AppBanHang</string>
-    <string name="gi_25000">Giá: 0đ</string>
-    <string name="th_m_v_o_gi_h_ng">thêm vào giỏ hàng</string>
-    <string name="ng_nh_p">Đăng nhập</string>
+    <string name="app_name">Open Book</string>
+    <string name="price">Giá:</string>
+    <string name="add_cart">Thêm vào giỏ hàng</string>
+    <string name="login">Đăng nhập</string>
+    <string name="novel">Tiểu thuyết</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="hello">Chào!</string>
+    <string name="pls_login">Đăng nhập ở đây để tiếp tục</string>
+    <string name="or">Hoặc</string>
+    <string name="login_Google">Đăng nhập bằng Google</string>
+    <string name="product_name">Tên sản phẩm</string>
+    <string name="product_desc">Mô tả chi tiết sản phẩm</string>
+    <string name="buy_now">Đặt hàng</string>
+    <string name="hint_address">Nhập địa chỉ giao hàng</string>
+    <string name="hint_search_long">Nhập tên sách bạn muốn tìm</string>
+    <string name="hint_search_short">Tìm kiếm</string>
 </resources>

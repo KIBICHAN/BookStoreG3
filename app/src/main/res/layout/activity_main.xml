@@ -32,7 +32,7 @@
                         android:focusable="false"
                         android:layout_width="230dp"
                         android:layout_height="match_parent"
-                        android:hint="Tìm kiếm"
+                        android:hint="@string/hint_search_short"
                         android:padding="10dp"
                         android:drawableRight="@drawable/ic_baseline_search_24"
                         android:background="@drawable/custom_edittext"

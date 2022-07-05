@@ -19,7 +19,7 @@
         android:id="@+id/edtsearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tên sách bạn muốn tìm"
+        android:hint="@string/hint_search_long"
         android:padding="10dp"
         android:drawableRight="@drawable/ic_baseline_search_24"
         android:background="@drawable/custom_edittext"

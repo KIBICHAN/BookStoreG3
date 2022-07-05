@@ -52,7 +52,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/calibri"
                 android:gravity="left"
-                android:text="Tên sản phẩm"
+                android:text="@string/product_name"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -66,8 +66,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="Giá: "
+                    android:text="@string/price"
                     android:textColor="@android:color/holo_red_light"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -101,7 +102,7 @@
                 android:background="@drawable/background_button"
                 android:drawableLeft="@drawable/ic_baseline_add_to_photos_24"
                 android:paddingHorizontal="20dp"
-                android:text="@string/th_m_v_o_gi_h_ng"
+                android:text="@string/add_cart"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
 
@@ -122,7 +123,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/calibri"
-            android:text="Mô tả chi tiết sản phẩm"
+            android:text="@string/product_desc"
             android:textSize="20sp"
             android:textStyle="bold" />
 
