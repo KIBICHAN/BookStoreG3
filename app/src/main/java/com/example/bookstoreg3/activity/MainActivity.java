@@ -7,7 +7,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,12 +21,13 @@ import android.widget.ViewFlipper;
 
 import com.example.bookstoreg3.R;
 import com.example.bookstoreg3.adapter.ViewPagerAdapter;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private ViewFlipper viewlipper;
     Animation slidein, slideout;
     private EditText edt_timkiem;
@@ -40,6 +43,12 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        NavigationView mNavigationView = (NavigationView) findViewById(R.id.navigationview);
+
+        if (mNavigationView != null) {
+            mNavigationView.setNavigationItemSelectedListener(this);
+        }
 
         edt_timkiem = (EditText) findViewById(R.id.edt_timkiem);
         edt_timkiem.setOnClickListener(new View.OnClickListener() {
@@ -94,5 +103,26 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
         }).attach();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.nav_shop_loc) {
+            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.nav_logout) {
+            Intent intent = new Intent(MainActivity.this, DangNhapActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.nav_message) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setPackage("com.facebook.orca");
+            intent.setData(Uri.parse("http://m.me/" + "hoangson200015"));
+            startActivity(intent);
+        }
+        return true;
     }
 }

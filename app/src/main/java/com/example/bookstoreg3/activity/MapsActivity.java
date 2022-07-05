@@ -60,7 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         googleMap.setTrafficEnabled(true);
 
         markerLC1 = mMap.addMarker(new MarkerOptions().position(LC1).title("Open Books").snippet("Long Thạnh Mỹ, District 9, Ho Chi Minh City, Vietnam"));
-        markerLC1.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.logopin));
+        markerLC1.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.logo_small));
         markerLC1.setTag(0);
     }
 }
