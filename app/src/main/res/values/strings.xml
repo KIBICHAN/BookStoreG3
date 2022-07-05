@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Open Book</string>
+    <string name="map_key">AIzaSyB7m0XQO0LBTft9bPAoWpr4mI3i4i51MYw</string>
     <string name="price">Giá:</string>
     <string name="add_cart">Thêm vào giỏ hàng</string>
     <string name="login">Đăng nhập</string>
@@ -15,4 +16,5 @@
     <string name="hint_address">Nhập địa chỉ giao hàng</string>
     <string name="hint_search_long">Nhập tên sách bạn muốn tìm</string>
     <string name="hint_search_short">Tìm kiếm</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
