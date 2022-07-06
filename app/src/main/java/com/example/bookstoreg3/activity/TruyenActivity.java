@@ -27,7 +27,7 @@ public class TruyenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_truyen);
 
         toolbar = findViewById(R.id.toobar);
-        recycleview_dt = findViewById(R.id.recycleview_dt);
+        recycleview_dt = findViewById(R.id.recycleview_dtt);
 
         truyenArrayList = new ArrayList<>();
         adapter = new TruyenAdapter(getApplicationContext(), truyenArrayList);
