@@ -33,9 +33,9 @@
         app:layout_constraintTop_toBottomOf="@id/toobar">
 
         <ImageView
-            android:id="@+id/imgchitiet"
+            android:id="@+id/imgBookImg"
             android:layout_width="150dp"
-            android:layout_height="200dp"/>
+            android:layout_height="200dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txttensp"
+                android:id="@+id/tvBookName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -52,35 +52,33 @@
                 android:fontFamily="@font/calibri"
                 android:gravity="left"
                 android:text="@string/product_name"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txtgia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="@string/price"
+                    android:text="Giá:"
                     android:textColor="@android:color/holo_red_light"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/txtgiasp"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvBookPrice"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
-                    android:text="0đ"
+                    android:text="20xxxđ"
                     android:textColor="@android:color/holo_red_light"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp" />
+
             </LinearLayout>
 
             <Spinner
@@ -100,7 +98,7 @@
                 android:layout_marginTop="80dp"
                 android:background="@drawable/background_button"
                 android:drawableLeft="@drawable/ic_baseline_add_to_photos_24"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/add_cart"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
@@ -109,6 +107,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
@@ -122,20 +121,163 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/calibri"
-            android:text="@string/product_desc"
+            android:text="@string/product_desc_label"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp">
 
-            <TextView
-                android:id="@+id/txtmotachitiet"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+                        android:text="Tác giả:"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvAuthor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="..................."
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+                        android:text="Nhà cung cấp:"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvSupperlier"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="..................."
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+                        android:text="Nhà phát hành:"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvPublisher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="..................."
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+                        android:text="Ngày xuất bản:"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvDatePublished"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="..................."
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="95dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+                        android:text="Đánh giá:"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="..................."
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
+                        android:text="Mô tả:"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/tvDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="..................."
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+            </LinearLayout>
         </ScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
