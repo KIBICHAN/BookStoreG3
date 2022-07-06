@@ -4,7 +4,8 @@
     <string name="price">Giá:</string>
     <string name="add_cart">Thêm vào giỏ hàng</string>
     <string name="login">Đăng nhập</string>
-    <string name="novel">Tiểu thuyết</string>
+    <string name="comic">Truyện</string>
+    <string name="books">Sách</string>
     <string name="forgot_password">Quên mật khẩu?</string>
     <string name="hello">Chào!</string>
     <string name="pls_login">Đăng nhập ở đây để tiếp tục</string>

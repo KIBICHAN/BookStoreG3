@@ -8,7 +8,7 @@
     tools:context=".activity.SachActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
-        app:title="Sách"
+        app:title="@string/books"
         android:background="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
