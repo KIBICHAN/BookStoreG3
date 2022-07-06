@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        NavigationView mNavigationView = (NavigationView) findViewById(R.id.navigationview);
+        NavigationView mNavigationView = (NavigationView) findViewById(R.id.navigationView);
 
         if (mNavigationView != null) {
             mNavigationView.setNavigationItemSelectedListener(this);
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 
         iv_ic_baseline_menu_24 = (ImageView) findViewById(R.id.iv_ic_baseline_menu_24);
         iv_ic_baseline_menu_24.setOnClickListener(new View.OnClickListener() {

@@ -20,4 +20,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="chat_support">https://m.me/hoangson200015</string>
     <string name="chat_package_name">com.facebook.orca</string>
+    <string name="desc_promo">Promo</string>
+    <string name="desc_navigation">navigation</string>
+    <string name="desc_cart">Cart</string>
+    <string name="tab_new">Mới Nhất</string>
+    <string name="tab_popular">Thịnh Hành</string>
 </resources>
