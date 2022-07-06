@@ -9,21 +9,21 @@ public class BookModel {
     float price;
     String supplier;
     String publisher;
-    int number;
+    int Inventory;
     int categoryID;
     String image;
     String ratting;
     Date datePublished;
     String description;
 
-    public BookModel(String bookID, String bookName, String author, float price, String supplier, String publisher, int number, int categoryID, String image, String ratting, Date datePublished, String description) {
+    public BookModel(String bookID, String bookName, String author, float price, String supplier, String publisher, int inventory, int categoryID, String image, String ratting, Date datePublished, String description) {
         this.bookID = bookID;
         this.bookName = bookName;
         Author = author;
         this.price = price;
         this.supplier = supplier;
         this.publisher = publisher;
-        this.number = number;
+        Inventory = inventory;
         this.categoryID = categoryID;
         this.image = image;
         this.ratting = ratting;
@@ -78,14 +78,6 @@ public class BookModel {
         this.publisher = publisher;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
     public int getCategoryID() {
         return categoryID;
     }
@@ -124,5 +116,13 @@ public class BookModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getInventory() {
+        return Inventory;
+    }
+
+    public void setInventory(int inventory) {
+        Inventory = inventory;
     }
 }

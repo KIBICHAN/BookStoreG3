@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookstoreg3.R;
+import com.example.bookstoreg3.database.GetConnection;
+
+import java.sql.Connection;
 
 public class DangNhapActivity extends AppCompatActivity {
     private TextView txtdangki;
@@ -17,7 +20,7 @@ public class DangNhapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
-
+        Connection conn = new GetConnection().getConn();
         btndangnhap = (Button) findViewById(R.id.btndangnhap);
         btndangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
