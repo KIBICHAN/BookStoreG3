@@ -34,9 +34,19 @@ public class MoiNhatFragment extends Fragment implements SanPhamMoiAdapter.itemC
 
         SanPhamMoi sanPhamMoi = new SanPhamMoi("https://marketplace.canva.com/EAD7WuSVrt0/1/0/1003w/canva-colorful-illustration-young-adult-book-cover-LVthABb24ik.jpg", "HYPOCRITE WORLD", "62.000đ");
         SanPhamMoi sanPhamMoi1 = new SanPhamMoi("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1637008457", "DRUG KING", "134.000đ");
+        SanPhamMoi sanPhamMoi2 = new SanPhamMoi("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1637008457", "DRUG KING", "134.000đ");
+        SanPhamMoi sanPhamMoi3 = new SanPhamMoi("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1637008457", "DRUG KING", "134.000đ");
+        SanPhamMoi sanPhamMoi4 = new SanPhamMoi("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1637008457", "DRUG KING", "134.000đ");
+        SanPhamMoi sanPhamMoi5 = new SanPhamMoi("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1637008457", "DRUG KING", "134.000đ");
+        SanPhamMoi sanPhamMoi6 = new SanPhamMoi("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1637008457", "DRUG KING", "134.000đ");
 
         SanPhamMoiData.add(sanPhamMoi);
         SanPhamMoiData.add(sanPhamMoi1);
+        SanPhamMoiData.add(sanPhamMoi2);
+        SanPhamMoiData.add(sanPhamMoi3);
+        SanPhamMoiData.add(sanPhamMoi4);
+        SanPhamMoiData.add(sanPhamMoi5);
+        SanPhamMoiData.add(sanPhamMoi6);
 
         sanPhamMoiAdapter = new SanPhamMoiAdapter(getContext(), SanPhamMoiData, this);
 
