@@ -130,4 +130,12 @@ public class BookModel {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public int getInventory() {
+        return Inventory;
+    }
+
+    public void setInventory(int inventory) {
+        Inventory = inventory;
+    }
 }
