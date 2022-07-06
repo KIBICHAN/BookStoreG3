@@ -118,13 +118,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        if (id == R.id.nav_account) {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.nav_truyen) {
+            Intent intent = new Intent(MainActivity.this, TruyenActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.nav_tieuthuyet) {
+            Intent intent = new Intent(MainActivity.this, TieuThuyetActivity.class);
+            startActivity(intent);
+        }
         if (id == R.id.nav_shop_loc) {
             Intent intent = new Intent(MainActivity.this, MapsActivity.class);
             startActivity(intent);
         }
         if (id == R.id.nav_logout) {
-            Intent intent = new Intent(MainActivity.this, DangNhapActivity.class);
-            startActivity(intent);
+            finish();
         }
         if (id == R.id.nav_message) {
             if (isPackageAvailable("com.facebook.orca")) {

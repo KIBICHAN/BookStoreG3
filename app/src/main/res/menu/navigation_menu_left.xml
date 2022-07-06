@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nav_shop_loc"
-        android:title="Shop's Location"
-        android:icon="@drawable/ic_baseline_location_on_24"/>
-    <item android:id="@+id/nav_account"
-        android:title="My Account"
-        android:icon="@drawable/ic_baseline_account_circle_24"/>
-    <item android:id="@+id/nav_message"
-        android:title="Help center"
-        android:icon="@drawable/ic_baseline_message_24"/>
-    <item android:id="@+id/nav_settings"
-        android:title="Settings"
-        android:icon="@drawable/ic_baseline_settings_24"/>
-    <item android:id="@+id/nav_logout"
-        android:title="Logout"
-        android:icon="@drawable/ic_baseline_login_24"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:title="Tài khoản của tôi" />
+        <item
+            android:id="@+id/nav_truyen"
+            android:icon="@drawable/ic_baseline_menu_book_24"
+            android:title="Truyện" />
+        <item
+            android:id="@+id/nav_tieuthuyet"
+            android:icon="@drawable/ic_baseline_menu_book_24"
+            android:title="Tiểu thuyết" />
+        <item
+            android:id="@+id/nav_shop_loc"
+            android:icon="@drawable/ic_baseline_location_on_24"
+            android:title="Vị trí cửa hàng" />
+        <item
+            android:id="@+id/nav_message"
+            android:icon="@drawable/ic_baseline_support_agent_24"
+            android:title="Liên hệ cửa hàng" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Cài đặt" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_baseline_login_24"
+            android:title="Đăng xuất" />
+    </group>
 </menu>
