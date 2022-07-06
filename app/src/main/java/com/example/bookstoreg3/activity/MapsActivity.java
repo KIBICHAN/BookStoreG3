@@ -52,7 +52,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng fpt = new LatLng(10.841318, 106.809880);
+        //fpt pin
+        //10.841171466891268, 106.81001605173263
+        LatLng fpt = new LatLng(10.841171466891268, 106.81001605173263);
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.addMarker(new MarkerOptions().position(fpt).title("FPT UNIVERSITY").snippet("Vị trí của bạn."));
         Float zoomLevel = 15.5f;

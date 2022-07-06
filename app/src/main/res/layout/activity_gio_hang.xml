@@ -65,7 +65,7 @@
     <Button
         android:id="@+id/btnmuahang"
         android:text="Mua hàng"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textColor="#E1FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"

@@ -10,6 +10,15 @@ public class Sach implements Serializable {
     String mota;
     int loai;
 
+    public Sach(int id, String tensach, String hinhanh, String giasach, String mota, int loai) {
+        this.id = id;
+        this.tensach = tensach;
+        this.hinhanh = hinhanh;
+        this.giasach = giasach;
+        this.mota = mota;
+        this.loai = loai;
+    }
+
     public int getId() {
         return id;
     }

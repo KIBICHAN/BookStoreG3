@@ -64,7 +64,7 @@
             android:name=".activity.TieuThuyetActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.TruyenActivity"
+            android:name=".activity.SachActivity"
             android:exported="false" />
         <activity
             android:name=".activity.DangNhapActivity"

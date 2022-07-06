@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ThanhToanActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
         app:layout_constraintTop_toTopOf="parent"
@@ -12,6 +14,7 @@
         android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
         app:cardCornerRadius="4dp"
@@ -22,21 +25,26 @@
         android:elevation="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:padding="5dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_baseline_attach_money_24"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/desc_logo" />
+
                 <TextView
                     android:id="@+id/txttongtien"
                     android:text="25.000"
@@ -47,6 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+
             <View
                 android:layout_marginTop="5dp"
                 android:background="@android:color/darker_gray"
@@ -58,12 +67,15 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_baseline_phone_24"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/desc_logo" />
+
                 <TextView
                     android:id="@+id/txtsodienthoai"
                     android:text="0962261140"
@@ -74,6 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+
             <View
                 android:layout_marginTop="5dp"
                 android:background="@android:color/darker_gray"
@@ -85,12 +98,15 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/ic_email"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/desc_logo" />
+
                 <TextView
                     android:id="@+id/txtemail"
                     android:text="tien@gmail.com"
@@ -104,6 +120,7 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputlayout"
         android:layout_marginLeft="5dp"
@@ -113,6 +130,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtdiachi"
             android:drawableLeft="@drawable/ic_baseline_add_location_24"
@@ -120,9 +138,7 @@
             android:hint="@string/hint_address"
             android:textColorHint="@android:color/holo_red_light"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </com.google.android.material.textfield.TextInputEditText>
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,6 +153,6 @@
         android:textColor="@android:color/white"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
