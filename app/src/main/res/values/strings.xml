@@ -7,12 +7,12 @@
     <string name="comic">Truyện</string>
     <string name="books">Sách</string>
     <string name="forgot_password">Quên mật khẩu?</string>
-    <string name="hello">Chào!</string>
+    <string name="hello">Chào mừng đến với Open Book!</string>
     <string name="pls_login">Đăng nhập ở đây để tiếp tục</string>
     <string name="or">Hoặc</string>
     <string name="login_Google">Đăng nhập bằng Google</string>
     <string name="product_name">Tên sản phẩm</string>
-    <string name="product_desc">Mô tả chi tiết sản phẩm</string>
+    <string name="product_desc_label">Mô tả chi tiết sản phẩm</string>
     <string name="buy_now">Đặt hàng</string>
     <string name="hint_address">Nhập địa chỉ giao hàng</string>
     <string name="hint_search_long">Nhập tên sách bạn muốn tìm</string>

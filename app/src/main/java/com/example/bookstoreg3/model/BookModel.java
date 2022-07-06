@@ -1,41 +1,54 @@
 package com.example.bookstoreg3.model;
 
+import android.graphics.drawable.Drawable;
+
 import java.util.Date;
 
 public class BookModel {
     String bookID;
+    Drawable bookImg;
     String bookName;
-    String Author;
-    float price;
+    double price;
+    String author;
     String supplier;
     String publisher;
-    int number;
-    int categoryID;
-    String image;
-    String ratting;
     Date datePublished;
+    int stockQuantity;
+    int categoryId;
+    String rating;
     String description;
 
-    public BookModel(String bookID, String bookName, String author, float price, String supplier, String publisher, int number, int categoryID, String image, String ratting, Date datePublished, String description) {
+    public BookModel() {}
+
+    public BookModel(String bookID, Drawable bookImg, String bookName, double price, String author, String supplier, String publisher, Date datePublished, int stockQuantity, int categoryId, String rating, String description) {
         this.bookID = bookID;
+        this.bookImg = bookImg;
         this.bookName = bookName;
-        Author = author;
         this.price = price;
+        this.author = author;
         this.supplier = supplier;
         this.publisher = publisher;
-        this.number = number;
-        this.categoryID = categoryID;
-        this.image = image;
-        this.ratting = ratting;
         this.datePublished = datePublished;
+        this.stockQuantity = stockQuantity;
+        this.categoryId = categoryId;
+        this.rating = rating;
         this.description = description;
-    }
-
-    public BookModel() {
     }
 
     public String getBookID() {
         return bookID;
+    }
+
+    public void setBookID(String bookID) {
+        this.bookID = bookID;
+    }
+
+    public Drawable getBookImg() {
+        return bookImg;
+    }
+
+    public void setBookImg(Drawable bookImg) {
+        this.bookImg = bookImg;
     }
 
     public String getBookName() {
@@ -46,20 +59,20 @@ public class BookModel {
         this.bookName = bookName;
     }
 
-    public String getAuthor() {
-        return Author;
-    }
-
-    public void setAuthor(String author) {
-        Author = author;
-    }
-
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getSupplier() {
@@ -78,44 +91,36 @@ public class BookModel {
         this.publisher = publisher;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public int getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(int categoryID) {
-        this.categoryID = categoryID;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getRatting() {
-        return ratting;
-    }
-
-    public void setRatting(String ratting) {
-        this.ratting = ratting;
-    }
-
     public Date getDatePublished() {
         return datePublished;
     }
 
     public void setDatePublished(Date datePublished) {
         this.datePublished = datePublished;
+    }
+
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     public String getDescription() {
