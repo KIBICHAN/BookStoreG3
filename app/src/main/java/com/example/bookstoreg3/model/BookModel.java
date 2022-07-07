@@ -6,21 +6,21 @@ import java.util.Date;
 
 public class BookModel {
     String bookID;
-    Drawable bookImg;
+    String bookImg;
     String bookName;
-    double price;
+    float price;
     String author;
     String supplier;
     String publisher;
     Date datePublished;
     int stockQuantity;
     int categoryId;
-    String rating;
+    int rating;
     String description;
 
     public BookModel() {}
 
-    public BookModel(String bookID, Drawable bookImg, String bookName, double price, String author, String supplier, String publisher, Date datePublished, int stockQuantity, int categoryId, String rating, String description) {
+    public BookModel(String bookID, String bookImg, String bookName, float price, String author, String supplier, String publisher, Date datePublished, int stockQuantity, int categoryId, int rating, String description) {
         this.bookID = bookID;
         this.bookImg = bookImg;
         this.bookName = bookName;
@@ -43,11 +43,11 @@ public class BookModel {
         this.bookID = bookID;
     }
 
-    public Drawable getBookImg() {
+    public String getBookImg() {
         return bookImg;
     }
 
-    public void setBookImg(Drawable bookImg) {
+    public void setBookImg(String bookImg) {
         this.bookImg = bookImg;
     }
 
@@ -59,11 +59,11 @@ public class BookModel {
         this.bookName = bookName;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -115,11 +115,11 @@ public class BookModel {
         this.categoryId = categoryId;
     }
 
-    public String getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
@@ -129,13 +129,5 @@ public class BookModel {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getInventory() {
-        return Inventory;
-    }
-
-    public void setInventory(int inventory) {
-        Inventory = inventory;
     }
 }
