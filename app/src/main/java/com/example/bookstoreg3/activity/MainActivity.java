@@ -122,24 +122,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
         }
-        if (id == R.id.nav_sach) {
+        else if (id == R.id.nav_sach) {
             Intent intent = new Intent(MainActivity.this, BookCategoryActivity.class);
             intent.putExtra("name", "sach");
             startActivity(intent);
         }
-        if (id == R.id.nav_truyen) {
+        else if (id == R.id.nav_truyen) {
             Intent intent = new Intent(MainActivity.this, BookCategoryActivity.class);
             intent.putExtra("name", "truyen");
             startActivity(intent);
         }
-        if (id == R.id.nav_shop_loc) {
+        else if (id == R.id.nav_shop_loc) {
             Intent intent = new Intent(MainActivity.this, MapsActivity.class);
             startActivity(intent);
         }
-        if (id == R.id.nav_logout) {
+        else if (id == R.id.nav_logout) {
             finish();
         }
-        if (id == R.id.nav_message) {
+        else if (id == R.id.nav_message) {
             if (isPackageAvailable("com.facebook.orca")) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setPackage("com.facebook.orca");
