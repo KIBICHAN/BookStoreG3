@@ -18,6 +18,7 @@ public class GetConnection {
         username="sa",
         password="123456789";
         StrictMode.ThreadPolicy sm = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(sm);
         String connURL = null;
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");

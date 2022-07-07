@@ -31,7 +31,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull BookHolder holder, int position) {
-        holder.bookImg.setImageDrawable(bookModels.get(position).getBookImg());
         holder.bookName.setText(bookModels.get(position).getBookName());
         holder.bookPrice.setText((int) bookModels.get(position).getPrice());
         holder.author.setText(bookModels.get(position).getAuthor());
