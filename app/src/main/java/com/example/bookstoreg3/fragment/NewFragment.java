@@ -13,35 +13,30 @@ import android.view.ViewGroup;
 
 import com.example.bookstoreg3.R;
 import com.example.bookstoreg3.activity.ChiTietActivity;
-import com.example.bookstoreg3.adapter.SanPhamMoiAdapter;
-import com.example.bookstoreg3.model.SanPhamMoi;
+import com.example.bookstoreg3.adapter.BookSpecialAdapter;
+import com.example.bookstoreg3.model.BookModel;
+import com.example.bookstoreg3.service.BookService;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
-public class ThinhHanhFragment extends Fragment implements SanPhamMoiAdapter.itemClickListener{
+public class NewFragment extends Fragment implements BookSpecialAdapter.itemClickListener{
     private RecyclerView recyclerview;
-    private SanPhamMoiAdapter sanPhamMoiAdapter;
+    private BookSpecialAdapter bookSpecialAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_thinh_hanh, container, false);
-
-        ArrayList<SanPhamMoi> SanPhamMoiData = new ArrayList<>();
-
+        BookService service = new BookService();
+        View rootView = inflater.inflate(R.layout.fragment_new, container, false);
+        ArrayList<BookModel> bookSpecialList = new ArrayList<>();
+        bookSpecialList = service.getNewBook(Calendar.getInstance().get(Calendar.YEAR));
         recyclerview = (RecyclerView) rootView.findViewById(R.id.recyclerview);
-
-        SanPhamMoi sanPhamMoi = new SanPhamMoi("https://m.media-amazon.com/images/I/41gr3r3FSWL.jpg", "COVER DESIGN", "42.000đ");
-        SanPhamMoi sanPhamMoi1 = new SanPhamMoi("https://edit.org/images/cat/book-covers-big-2019101610.jpg", "MY BOOK COVER", "34.000đ");
-
-        SanPhamMoiData.add(sanPhamMoi);
-        SanPhamMoiData.add(sanPhamMoi1);
-
-        sanPhamMoiAdapter = new SanPhamMoiAdapter(getContext(), SanPhamMoiData, this);
-
+        bookSpecialAdapter = new BookSpecialAdapter(getContext(), bookSpecialList, this);
         recyclerview.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        recyclerview.setAdapter(sanPhamMoiAdapter);
+        recyclerview.setAdapter(bookSpecialAdapter);
 
         return rootView;
     }

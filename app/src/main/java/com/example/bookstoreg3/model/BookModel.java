@@ -2,9 +2,10 @@ package com.example.bookstoreg3.model;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BookModel {
+public class BookModel implements Serializable {
     String bookID;
     String bookImg;
     String bookName;
@@ -19,6 +20,21 @@ public class BookModel {
     String description;
 
     public BookModel() {}
+
+    public BookModel(String bookID, String bookImg, String bookName, float price) {
+        this.bookID = bookID;
+        this.bookImg = bookImg;
+        this.bookName = bookName;
+        this.price = price;
+    }
+
+    public BookModel(String bookID, String bookImg, String bookName, float price, String description) {
+        this.bookID = bookID;
+        this.bookImg = bookImg;
+        this.bookName = bookName;
+        this.price = price;
+        this.description = description;
+    }
 
     public BookModel(String bookID, String bookImg, String bookName, float price, String author, String supplier, String publisher, Date datePublished, int stockQuantity, int categoryId, int rating, String description) {
         this.bookID = bookID;

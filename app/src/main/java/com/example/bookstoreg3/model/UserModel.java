@@ -1,6 +1,8 @@
 package com.example.bookstoreg3.model;
 
-public class UserModel {
+import java.io.Serializable;
+
+public class UserModel implements Serializable {
     String userID;
     String name;
     String address;
