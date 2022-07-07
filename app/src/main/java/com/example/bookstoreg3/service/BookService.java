@@ -29,6 +29,9 @@ public class BookService {
                     BookModel model = new BookModel(id, img, name, price, description);
                     listBookCategory.add(model);
                 }
+                rs.close();
+                stm.close();
+                conn.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,6 +56,9 @@ public class BookService {
                     BookModel model = new BookModel(id, img, name, price);
                     listBook.add(model);
                 }
+                rs.close();
+                stm.close();
+                conn.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,6 +83,9 @@ public class BookService {
                     BookModel model = new BookModel(id, img, name, price);
                     listBook.add(model);
                 }
+                rs.close();
+                stm.close();
+                conn.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
