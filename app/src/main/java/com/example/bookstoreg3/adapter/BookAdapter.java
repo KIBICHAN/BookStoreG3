@@ -1,69 +1,116 @@
 package com.example.bookstoreg3.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Adapter;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
+import com.bumptech.glide.Glide;
 import com.example.bookstoreg3.R;
+import com.example.bookstoreg3.activity.ChiTietActivity;
+import com.example.bookstoreg3.interfaces.ItemClickListener;
 import com.example.bookstoreg3.model.BookModel;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookHolder>{
-    ArrayList<BookModel> bookModels;
+public class BookAdapter extends Adapter<ViewHolder> {
+    private static final int VIEW_TYPE_DATA = 0;
+    private static final int VIEW_TYPE_LOADING = 1;
+    Context context;
+    List<BookModel> array;
 
-    public BookAdapter(ArrayList<BookModel> bookModel) {
-        this.bookModels = bookModel;
-    }
-
-    @NonNull
-    @Override
-    public BookAdapter.BookHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_chi_tiet, parent, false);
-        return new BookHolder(v);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull BookHolder holder, int position) {
-        holder.bookName.setText(bookModels.get(position).getBookName());
-        holder.bookPrice.setText((int) bookModels.get(position).getPrice());
-        holder.author.setText(bookModels.get(position).getAuthor());
-        holder.supplier.setText(bookModels.get(position).getSupplier());
-        holder.publisher.setText(bookModels.get(position).getPublisher());
-        holder.datePublished.setText(bookModels.get(position).getDatePublished().toString());
-        holder.rating.setText(bookModels.get(position).getRating());
-        holder.description.setText(bookModels.get(position).getDescription());
-
+    public BookAdapter(Context context, List<BookModel> array) {
+        this.context = context;
+        this.array = array;
     }
 
     @Override
     public int getItemCount() {
-        return bookModels.size();
+        return array.size();
     }
 
-    public class BookHolder extends RecyclerView.ViewHolder{
-        ImageView bookImg;
-        TextView bookName, bookPrice, author, supplier, publisher, datePublished, rating, description;
+    @Override
+    public int getItemViewType(int position) {
+        return array.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_DATA;
+    }
 
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == VIEW_TYPE_DATA) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_truyen, parent, false);
+            return new MyViewHolder(view);
+        } else {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_loading, parent, false);
+            return new LoadingViewHolder(view);
+        }
+    }
 
-        public BookHolder(@NonNull View itemView) {
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        if (holder instanceof MyViewHolder) {
+            MyViewHolder myViewHolder = (MyViewHolder) holder;
+            BookModel book = array.get(position);
+            myViewHolder.tensach.setText(book.getBookName().trim());
+            myViewHolder.giasach.setText("Giá: " + book.getPrice() + "Đ");
+            myViewHolder.mota.setText(book.getDescription());
+            Glide.with(context).load(book.getBookImg()).into(myViewHolder.hinhanh);
+            myViewHolder.setItemClickListener(new ItemClickListener() {
+                @Override
+                public void onClick(View view, int pos, boolean isLongClick) {
+                    if (!isLongClick) {
+                        //click :V
+                        Intent intent = new Intent(context, ChiTietActivity.class);
+                        intent.putExtra("chitiet", book);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                    }
+                }
+            });
+        } else {
+            LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
+            loadingViewHolder.progressBar.setIndeterminate(true);
+        }
+    }
+
+    public class MyViewHolder extends ViewHolder implements View.OnClickListener {
+        TextView tensach, giasach, mota;
+        ImageView hinhanh;
+        private ItemClickListener itemClickListener;
+
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            Context context = itemView.getContext();
-            bookImg = itemView.findViewById(R.id.imgBookImg);
-            bookName = itemView.findViewById(R.id.tvBookName);
-            bookPrice = itemView.findViewById(R.id.tvBookPrice);
-            author = itemView.findViewById(R.id.tvAuthor);
-            supplier = itemView.findViewById(R.id.tvSupperlier);
-            publisher = itemView.findViewById(R.id.tvPublisher);
-            datePublished = itemView.findViewById(R.id.tvDatePublished);
-            rating = itemView.findViewById(R.id.tvRating);
-            description = itemView.findViewById(R.id.tvDesc);
+            tensach = itemView.findViewById(R.id.itemdt_ten);
+            giasach = itemView.findViewById(R.id.itemdt_gia);
+            mota = itemView.findViewById(R.id.itemdt_mota);
+            hinhanh = itemView.findViewById(R.id.itemdt_image);
+            itemView.setOnClickListener(this);
+        }
+
+        public void setItemClickListener(ItemClickListener itemClickListener) {
+            this.itemClickListener = itemClickListener;
+        }
+
+        @Override
+        public void onClick(View view) {
+            itemClickListener.onClick(view, getAdapterPosition(), false);
+        }
+    }
+
+    public class LoadingViewHolder extends ViewHolder {
+        ProgressBar progressBar;
+
+        public LoadingViewHolder(@NonNull View itemView) {
+            super(itemView);
+            progressBar = itemView.findViewById(R.id.progressbar);
         }
     }
 }

@@ -3,14 +3,10 @@ package com.example.bookstoreg3.adapter;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.bookstoreg3.fragment.MoiNhatFragment;
-import com.example.bookstoreg3.fragment.ThinhHanhFragment;
-
-import java.util.ArrayList;
+import com.example.bookstoreg3.fragment.NewFragment;
+import com.example.bookstoreg3.fragment.RattingFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
@@ -22,9 +18,9 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position){
-            case 0: return new MoiNhatFragment();
-            case 1: return new ThinhHanhFragment();
-            default: return new MoiNhatFragment();
+            case 0: return new NewFragment();
+            case 1: return new RattingFragment();
+            default: return new NewFragment();
         }
     }
 

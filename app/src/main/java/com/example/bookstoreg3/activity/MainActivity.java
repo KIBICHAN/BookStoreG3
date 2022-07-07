@@ -123,11 +123,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         }
         if (id == R.id.nav_sach) {
-            Intent intent = new Intent(MainActivity.this, SachActivity.class);
+            Intent intent = new Intent(MainActivity.this, BookCategoryActivity.class);
+            intent.putExtra("name", "sach");
             startActivity(intent);
         }
         if (id == R.id.nav_truyen) {
-            Intent intent = new Intent(MainActivity.this, TruyenActivity.class);
+            Intent intent = new Intent(MainActivity.this, BookCategoryActivity.class);
+            intent.putExtra("name", "truyen");
             startActivity(intent);
         }
         if (id == R.id.nav_shop_loc) {

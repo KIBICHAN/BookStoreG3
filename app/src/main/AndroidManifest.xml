@@ -60,10 +60,7 @@
             android:name=".activity.ThanhToanActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SachActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.TruyenActivity"
+            android:name=".activity.BookCategoryActivity"
             android:exported="false" />
         <activity
             android:name=".activity.DangNhapActivity"

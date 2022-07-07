@@ -1,8 +1,6 @@
 package com.example.bookstoreg3.adapter;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,39 +12,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.bookstoreg3.R;
-import com.example.bookstoreg3.model.SanPhamMoi;
+import com.example.bookstoreg3.model.BookModel;
 
-import java.net.URL;
 import java.util.ArrayList;
 
-public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.MyHolder>{
+public class BookSpecialAdapter extends RecyclerView.Adapter<BookSpecialAdapter.MyHolder>{
     Context context;
-    ArrayList<SanPhamMoi> sanPhamMoiArrayList;
+    ArrayList<BookModel> list;
     private itemClickListener mItemClickListener;
 
-    public SanPhamMoiAdapter(Context context, ArrayList<SanPhamMoi> sanPhamMoiArrayList, itemClickListener clickListener) {
+    public BookSpecialAdapter(Context context, ArrayList<BookModel> sanPhamMoiArrayList, itemClickListener clickListener) {
         this.context = context;
-        this.sanPhamMoiArrayList = sanPhamMoiArrayList;
+        this.list = sanPhamMoiArrayList;
         this.mItemClickListener = clickListener;
     }
 
     @NonNull
     @Override
-    public SanPhamMoiAdapter.MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BookSpecialAdapter.MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sp_moi, parent, false);
         return new MyHolder(v, mItemClickListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SanPhamMoiAdapter.MyHolder holder, int position) {
-        Glide.with(context).load(sanPhamMoiArrayList.get(position).getHinhanh()).into(holder.itemsp_image);
-        holder.itemsp_ten.setText(sanPhamMoiArrayList.get(position).getTensp());
-        holder.itemsp_gia.setText(sanPhamMoiArrayList.get(position).getGiasp());
+    public void onBindViewHolder(@NonNull BookSpecialAdapter.MyHolder holder, int position) {
+        Glide.with(context).load(list.get(position).getBookImg()).into(holder.itemsp_image);
+        holder.itemsp_ten.setText(list.get(position).getBookName());
+        holder.itemsp_gia.setText(Float.toString(list.get(position).getPrice()));
     }
 
     @Override
     public int getItemCount() {
-        return sanPhamMoiArrayList.size();
+        return list.size();
     }
 
     public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
