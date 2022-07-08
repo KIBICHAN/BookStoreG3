@@ -241,11 +241,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:drawableLeft="@drawable/ic_baseline_arrow_right_24"
-                        android:text="Đánh giá:"
+                        android:text="Số lượng:"
                         android:textSize="16sp"/>
 
                     <TextView
-                        android:id="@+id/tvRating"
+                        android:id="@+id/tvInventory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
