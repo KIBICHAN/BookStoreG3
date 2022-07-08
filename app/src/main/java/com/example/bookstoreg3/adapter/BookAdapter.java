@@ -69,7 +69,7 @@ public class BookAdapter extends Adapter<ViewHolder> {
                     if (!isLongClick) {
                         //click :V
                         Intent intent = new Intent(context, ChiTietActivity.class);
-                        intent.putExtra("chitiet", book);
+                        intent.putExtra("id", book.getBookID());
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                     }

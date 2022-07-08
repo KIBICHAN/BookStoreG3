@@ -21,13 +21,13 @@ import java.util.ArrayList;
 public class RattingFragment extends Fragment implements BookSpecialAdapter.itemClickListener{
     private RecyclerView recyclerview;
     private BookSpecialAdapter bookSpecialAdapter;
+    private ArrayList<BookModel> bookSpecialList = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         BookService service = new BookService();
         View rootView = inflater.inflate(R.layout.fragment_ratting, container, false);
-        ArrayList<BookModel> bookSpecialList = new ArrayList<>();
         bookSpecialList = service.getPopularBook(5);
         recyclerview = (RecyclerView) rootView.findViewById(R.id.recyclerview);
         bookSpecialAdapter = new BookSpecialAdapter(getContext(), bookSpecialList, this);
@@ -39,6 +39,7 @@ public class RattingFragment extends Fragment implements BookSpecialAdapter.item
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(getContext(), ChiTietActivity.class);
+        intent.putExtra("id", bookSpecialList.get(position).getBookID());
         startActivity(intent);
     }
 }

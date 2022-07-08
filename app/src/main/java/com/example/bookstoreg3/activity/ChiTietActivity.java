@@ -18,8 +18,9 @@ public class ChiTietActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chi_tiet);
-
         iv_ic_cart_24 = (ImageView) findViewById(R.id.iv_ic_cart_24);
+        Intent intent = new Intent();
+        String id = intent.getStringExtra("id");
         iv_ic_cart_24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
