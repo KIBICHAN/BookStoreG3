@@ -4,10 +4,10 @@ import com.example.bookstoreg3.database.GetConnection;
 import com.example.bookstoreg3.model.BookModel;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BookService {
 
@@ -91,5 +91,36 @@ public class BookService {
             e.printStackTrace();
         }
         return listBook;
+    }
+
+    public BookModel getBookByID(String id) {
+        BookModel book = null;
+        try{
+            Connection conn = new GetConnection().getConn();
+            if (conn != null){
+                String query = "select * from Book where Ratting = "+ id +"";
+                Statement stm = conn.createStatement();
+                ResultSet rs = stm.executeQuery(query);
+                if (rs.next()) {
+                    String img = rs.getString("Image");
+                    String name = rs.getString("BookName");
+                    float price = rs.getFloat("Price");
+                    String author = rs.getString("Author");;
+                    String supplier = rs.getString("Supplier");
+                    String publisher = rs.getString("Publisher");
+                    Date datePublished = new Date(rs.getDate("DatePublished").getTime());
+                    int stockQuantity = rs.getInt("Inventory");
+                    int rating = rs.getInt("Ratting");
+                    String description = rs.getString("Description");
+                    book = new BookModel(id, img, name, price, author, supplier, publisher, datePublished, stockQuantity, rating, description);
+                }
+                rs.close();
+                stm.close();
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return book;
     }
 }

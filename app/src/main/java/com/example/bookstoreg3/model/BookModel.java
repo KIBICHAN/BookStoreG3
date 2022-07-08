@@ -36,6 +36,20 @@ public class BookModel implements Serializable {
         this.description = description;
     }
 
+    public BookModel(String bookID, String bookImg, String bookName, float price, String author, String supplier, String publisher, Date datePublished, int stockQuantity, int rating, String description) {
+        this.bookID = bookID;
+        this.bookImg = bookImg;
+        this.bookName = bookName;
+        this.price = price;
+        this.author = author;
+        this.supplier = supplier;
+        this.publisher = publisher;
+        this.datePublished = datePublished;
+        this.stockQuantity = stockQuantity;
+        this.rating = rating;
+        this.description = description;
+    }
+
     public BookModel(String bookID, String bookImg, String bookName, float price, String author, String supplier, String publisher, Date datePublished, int stockQuantity, int categoryId, int rating, String description) {
         this.bookID = bookID;
         this.bookImg = bookImg;
