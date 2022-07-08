@@ -2,6 +2,7 @@ package com.example.bookstoreg3.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +70,10 @@ public class BookAdapter extends Adapter<ViewHolder> {
                     if (!isLongClick) {
                         //click :V
                         Intent intent = new Intent(context, ChiTietActivity.class);
-                        intent.putExtra("id", book.getBookID());
+                        SharedPreferences sharedPreferences = context.getSharedPreferences("bookID", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("id", array.get(pos).getBookID());
+                        editor.commit();
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
                     }

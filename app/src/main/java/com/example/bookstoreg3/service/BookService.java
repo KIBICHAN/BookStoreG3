@@ -98,7 +98,7 @@ public class BookService {
         try{
             Connection conn = new GetConnection().getConn();
             if (conn != null){
-                String query = "select * from Book where Ratting = "+ id +"";
+                String query = "select * from Book where BookID = '"+ id +"'";
                 Statement stm = conn.createStatement();
                 ResultSet rs = stm.executeQuery(query);
                 if (rs.next()) {
