@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Data/ON SHOOL DATA/PRM391/BookStoreG3/app/src/main/res/layout/activity_gio_hang.xml" value="0.36666666666666664" />
+        <entry key="..\:/Data/ON SHOOL DATA/PRM391/BookStoreG3/app/src/main/res/layout/item_giohang.xml" value="0.36666666666666664" />
+        <entry key="..\:/Data/ON SHOOL DATA/PRM391/BookStoreG3/app/src/main/res/layout/item_loading.xml" value="0.36666666666666664" />
+        <entry key="..\:/Data/ON SHOOL DATA/PRM391/BookStoreG3/app/src/main/res/layout/item_sanpham.xml" value="0.36666666666666664" />
+        <entry key="..\:/Data/ON SHOOL DATA/PRM391/BookStoreG3/app/src/main/res/layout/item_sanpham_giohang.xml" value="0.365625" />
+        <entry key="..\:/Data/ON SHOOL DATA/PRM391/BookStoreG3/app/src/main/res/layout/item_sp_moi.xml" value="0.36666666666666664" />
+        <entry key="..\:/Data/ON SHOOL DATA/PRM391/BookStoreG3/app/src/main/res/layout/item_truyen.xml" value="0.36666666666666664" />
         <entry key="..\:/androiddemo/BookStoreG3/app/src/main/res/layout/activity_book_category.xml" value="0.2625" />
         <entry key="..\:/androiddemo/BookStoreG3/app/src/main/res/layout/activity_chi_tiet.xml" value="0.264" />
         <entry key="..\:/androiddemo/BookStoreG3/app/src/main/res/layout/activity_dang_ki.xml" value="0.11018518518518519" />

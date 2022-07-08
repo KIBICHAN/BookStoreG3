@@ -12,11 +12,11 @@ public class GetConnection {
     Connection conn;
     @SuppressLint("NewApi")
     public Connection getConn() {
-        String ip="192.168.0.189",
+        String ip="172.25.48.1",
         port="1433",
         db="BookManager",
         username="sa",
-        password="123456789";
+        password="sa";
         StrictMode.ThreadPolicy sm = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(sm);
         String connURL = null;
