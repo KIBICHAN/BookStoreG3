@@ -39,6 +39,34 @@ public class BookService {
         return listBookCategory;
     }
 
+    public ArrayList<BookModel> getBookByName(String BookName) {
+        ArrayList<BookModel> listBookCategory = null;
+        try{
+            Connection conn = new GetConnection().getConn();
+            if (conn != null){
+                String query = "select * from Book where BookName  LIKE '%"+ BookName +"%') ";
+                Statement stm = conn.createStatement();
+                ResultSet rs = stm.executeQuery(query);
+                listBookCategory = new ArrayList<>();
+                while (rs.next()){
+                    String id = rs.getString("BookID");
+                    String img = rs.getString("Image");
+                    String name = rs.getString("BookName");
+                    float price = rs.getFloat("Price");
+                    String description = rs.getString("Description");
+                    BookModel model = new BookModel(id, img, name, price, description);
+                    listBookCategory.add(model);
+                }
+                rs.close();
+                stm.close();
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listBookCategory;
+    }
+
     public ArrayList<BookModel> getNewBook(int year) {
         ArrayList<BookModel> listBook = null;
         try{

@@ -104,17 +104,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_weight="1"
-                    android:text="Nickname:"
+                    android:fontFamily="@font/calibri"
+                    android:text="Address:"
                     android:textColor="#E1000000"
                     android:textSize="22dp"
-                    android:fontFamily="@font/calibri"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.476" />
 
                 <TextView
-                    android:id="@+id/editNickname"
+                    android:id="@+id/editAddress"
                     android:layout_width="300dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
@@ -155,17 +155,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_weight="1"
-                    android:text="Bio:"
+                    android:fontFamily="@font/calibri"
+                    android:text="Balance:"
                     android:textColor="#E1000000"
                     android:textSize="22dp"
-                    android:fontFamily="@font/calibri"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.476" />
 
                 <TextView
-                    android:id="@+id/editNicknamewut"
+                    android:id="@+id/editBalance"
                     android:layout_width="300dp"
                     android:layout_height="45dp"
                     android:layout_weight="1"
@@ -269,8 +269,8 @@
                     android:layout_width="300dp"
                     android:layout_height="45dp"
                     android:ems="10"
-                    android:paddingVertical="10dp"
                     android:inputType="date"
+                    android:paddingVertical="10dp"
                     android:paddingLeft="10dp"
                     android:text="21/6/2022"
                     android:textColor="#E1000000"
@@ -278,7 +278,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="TouchTargetSizeCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
