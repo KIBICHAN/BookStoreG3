@@ -18,7 +18,7 @@ import com.example.bookstoreg3.service.UserService;
 import java.sql.Connection;
 
 public class DangNhapActivity extends AppCompatActivity {
-    private TextView txtdangki;
+    private TextView txtdangki, tvNoti;
     private Button btndangnhap;
     private EditText etgmail, etpassword;
     @Override
@@ -28,6 +28,7 @@ public class DangNhapActivity extends AppCompatActivity {
         etgmail = (EditText) findViewById(R.id.email);
         etpassword = (EditText) findViewById(R.id.password);
         btndangnhap = (Button) findViewById(R.id.btndangnhap);
+        tvNoti = (TextView) findViewById(R.id.tvNoti);
         UserService service = new UserService();
         btndangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +53,22 @@ public class DangNhapActivity extends AppCompatActivity {
                     Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                     startActivity(intent);
                 }else {
-                    //lam gi do
+                    tvNoti.setText("Sai tài khoản hoặc mật khẩu!");
+                    etgmail.setText(gmail);
+                    etpassword.setText("");
+
+                    etgmail.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            tvNoti.setText("");
+                        }
+                    });
+                    etpassword.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            tvNoti.setText("");
+                        }
+                    });
                 }
             }
         });
