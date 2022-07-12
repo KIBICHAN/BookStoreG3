@@ -1,5 +1,6 @@
 package com.example.bookstoreg3.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Order {
@@ -9,21 +10,27 @@ public class Order {
     Date dateDelivery;
     String userID;
     int status;
+    ArrayList<OrderDetail> listOrderDetails;
 
-    public Order(int orderID, float total, Date dateOreder, Date dateDelivery, String userID, int status) {
+    public Order() {
+    }
+
+    public Order(int orderID, float total, Date dateOreder, Date dateDelivery, String userID, int status, ArrayList<OrderDetail> listOrderDetails) {
         this.orderID = orderID;
         this.total = total;
         this.dateOreder = dateOreder;
         this.dateDelivery = dateDelivery;
         this.userID = userID;
         this.status = status;
-    }
-
-    public Order() {
+        this.listOrderDetails = listOrderDetails;
     }
 
     public int getOrderID() {
         return orderID;
+    }
+
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
 
     public float getTotal() {
@@ -64,5 +71,13 @@ public class Order {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public ArrayList<OrderDetail> getListOrderDetails() {
+        return listOrderDetails;
+    }
+
+    public void setListOrderDetails(ArrayList<OrderDetail> listOrderDetails) {
+        this.listOrderDetails = listOrderDetails;
     }
 }
