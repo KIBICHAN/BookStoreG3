@@ -43,6 +43,33 @@ public class OrderDetailService {
         return orderDetailArrayList;
     }
 
+    public OrderDetail GetOrderDetailByID(String orderId, String bookID) {
+        OrderDetail orderDetail = null;
+        try {
+            Connection conn = new GetConnection().getConn();
+            if (conn != null) {
+                String query = "SELECT * From OrderDetail WHERE OrderID = '" + orderId + "' AND BookID = '" + bookID + "'";
+                Statement stm = conn.createStatement();
+                ResultSet rs = stm.executeQuery(query);
+                while (rs.next()) {
+                    orderDetail = new OrderDetail(
+                            rs.getString("OrderDetailID"),
+                            rs.getString("OrderID"),
+                            rs.getString("BookID"),
+                            rs.getInt("Quantity"),
+                            rs.getFloat("TotalUnit")
+                    );
+                }
+                rs.close();
+                stm.close();;
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orderDetail;
+    }
+
     public OrderDetail CreateOrderDetail(String orderID, String bookID, int quantity, float price) {
         OrderDetail orderDetail = null;
         try {
@@ -63,24 +90,23 @@ public class OrderDetailService {
         }
         return orderDetail;
     }
-
-    public void CheckDuplicateOrderDetail(String orderID, String bookID) {
-
-        OrderService orderDetail = null;
+    public boolean UpdateOrderDetail(String orderDetaileID, int quantity, float price) {
 
         try {
             Connection conn = new GetConnection().getConn();
             if (conn != null) {
-                String query = "UPDATE OrderDetail \n" +
-                        "Set Quantity=Quantity+1\n" +
-                        "Where OrderID ='" + orderID + "' AND BookID ='" + bookID + "'";
+                float total = quantity * price;
+                String query = "UPDATE OrderDetail Set Quantity = " + quantity + ", TotalUnit = " + total + " Where OrderDetailID = '" + orderDetaileID + "' ";
                 Statement stm = conn.createStatement();
-                stm.executeUpdate(query);
+                if (stm.executeUpdate(query) > 0) {
+                    return true;
+                }
                 stm.close();
                 conn.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
 }
