@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +31,7 @@ public class GioHangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang);
+        new ItemTouchHelper(itemTouchHelperCallBack).attachToRecyclerView(recyclerviewgiohang);
         recyclerviewgiohang = findViewById(R.id.recyclerviewgiohang);
         OrderDetailService orderDetailService = new OrderDetailService();
         SharedPreferences orderUser = getSharedPreferences("orderUser", MODE_PRIVATE);
@@ -43,10 +46,21 @@ public class GioHangActivity extends AppCompatActivity {
         btnmuahang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(GioHangActivity.this, ThanhToanActivity.class);
                 startActivity(intent);
             }
         });
     }
+    ItemTouchHelper.SimpleCallback itemTouchHelperCallBack = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            list.remove(viewHolder.getAdapterPosition());
+            recyclerviewgiohang.notify();
+        }
+    };
 }
