@@ -45,11 +45,13 @@ public class NewFragment extends Fragment implements BookSpecialAdapter.itemClic
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(getContext(), ChiTietActivity.class);
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("bookID", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("BookClick", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("id", bookSpecialList.get(position).getBookID());
+        editor.putFloat("price", bookSpecialList.get(position).getPrice());
+        editor.putString("img", bookSpecialList.get(position).getBookImg());
+        editor.putString("name", bookSpecialList.get(position).getBookName());
         editor.commit();
-        intent.putExtra("id", "lol");
         startActivity(intent);
     }
 }

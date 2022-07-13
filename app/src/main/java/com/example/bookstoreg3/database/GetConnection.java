@@ -12,7 +12,7 @@ public class GetConnection {
     Connection conn;
     @SuppressLint("NewApi")
     public Connection getConn() {
-        String ip="10.1.136.74",
+        String ip="10.1.96.243",
         port="1433",
         db="BookManager",
         username="sa",

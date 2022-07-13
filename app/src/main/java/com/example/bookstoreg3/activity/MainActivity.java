@@ -1,6 +1,7 @@
 package com.example.bookstoreg3.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +21,9 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.bookstoreg3.R;
 import com.example.bookstoreg3.adapter.ViewPagerAdapter;
+import com.example.bookstoreg3.model.Order;
+import com.example.bookstoreg3.service.OrderDetailService;
+import com.example.bookstoreg3.service.OrderService;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -71,6 +75,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         iv_ic_cart_24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences account = getSharedPreferences("Account", MODE_PRIVATE);
+                String userID = account.getString("id", "");
+                OrderService orderService = new OrderService();
+                Order order = orderService.GetOrderExist(userID);
+                if (order == null) {
+                    order = orderService.CreateOrder(userID);
+                } else {
+                    OrderDetailService orderDetailService = new OrderDetailService();
+                }
+                SharedPreferences orderUser = getSharedPreferences("orderUser", MODE_PRIVATE);
+                SharedPreferences.Editor editor = orderUser.edit();
+                editor.putString("id", order.getOrderID());
+                editor.commit();
                 Intent intent = new Intent(MainActivity.this, GioHangActivity.class);
                 startActivity(intent);
             }
