@@ -70,9 +70,10 @@ public class BookAdapter extends Adapter<ViewHolder> {
                     if (!isLongClick) {
                         //click :V
                         Intent intent = new Intent(context, ChiTietActivity.class);
-                        SharedPreferences sharedPreferences = context.getSharedPreferences("bookID", Context.MODE_PRIVATE);
+                        SharedPreferences sharedPreferences = context.getSharedPreferences("BookClick", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("id", array.get(pos).getBookID());
+                        editor.putFloat("price", array.get(pos).getPrice());
                         editor.commit();
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
