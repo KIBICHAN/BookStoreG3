@@ -74,6 +74,8 @@ public class BookAdapter extends Adapter<ViewHolder> {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("id", array.get(pos).getBookID());
                         editor.putFloat("price", array.get(pos).getPrice());
+                        editor.putString("img", array.get(pos).getBookImg());
+                        editor.putString("name", array.get(pos).getBookName());
                         editor.commit();
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);

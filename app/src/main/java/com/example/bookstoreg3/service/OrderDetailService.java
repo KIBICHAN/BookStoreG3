@@ -18,12 +18,13 @@ public class OrderDetailService {
         try {
             Connection conn = new GetConnection().getConn();
             if (conn != null) {
+                orderDetailArrayList = new ArrayList<>();
                 String query = "SELECT * From OrderDetail WHERE OrderID = '" + orderId + "'";
                 Statement stm = conn.createStatement();
                 ResultSet rs = stm.executeQuery(query);
                 while (rs.next()) {
                     orderDetailArrayList.add(
-                            new OrderDetail(
+                            new OrderDetail (
                                     rs.getString("OrderDetailID"),
                                     rs.getString("OrderID"),
                                     rs.getString("BookID"),
