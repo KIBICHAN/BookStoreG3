@@ -6,68 +6,73 @@ import com.example.bookstoreg3.model.OrderDetail;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class OrderDetailService {
 
-    public ArrayList<OrderDetail> GetAllOrderDetail(String orderId){
-        ArrayList<OrderDetail> orderDetailArrayList = null;
+    public OrderDetailService() {
+    }
 
-        try{
+    public ArrayList<OrderDetail> GetAllOrderDetail(String orderId) {
+        ArrayList<OrderDetail> orderDetailArrayList = null;
+        try {
             Connection conn = new GetConnection().getConn();
-            if(conn!=null){
-                String query = "SELECT * From OrderDetail WHERE OrderID = '"+orderId+"'";
+            if (conn != null) {
+                String query = "SELECT * From OrderDetail WHERE OrderID = '" + orderId + "'";
                 Statement stm = conn.createStatement();
                 ResultSet rs = stm.executeQuery(query);
-                while (rs.next()){
-                    orderDetailArrayList.add(new OrderDetail(rs.getString("OrderDetailID"),
-                                                             rs.getString("OrderID"),
-                                                             rs.getString("BookID"),
-                                                             rs.getInt("Quantity"),
-                                                             rs.getFloat("TotalUnit")));
+                while (rs.next()) {
+                    orderDetailArrayList.add(
+                            new OrderDetail(
+                                    rs.getString("OrderDetailID"),
+                                    rs.getString("OrderID"),
+                                    rs.getString("BookID"),
+                                    rs.getInt("Quantity"),
+                                    rs.getFloat("TotalUnit")
+                            )
+                    );
                 }
-                return orderDetailArrayList;
+                rs.close();
+                stm.close();;
+                conn.close();
             }
-
-
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return orderDetailArrayList;
     }
 
-    public void CreateOrderDetail (String orderID, String bookID, int quantity, float price) {
-        float total = price * quantity;
-        OrderService orderDetail = null;
-
-        try{
+    public OrderDetail CreateOrderDetail(String orderID, String bookID, int quantity, float price) {
+        OrderDetail orderDetail = null;
+        try {
             Connection conn = new GetConnection().getConn();
-            if (conn != null){
-                String query = "INSERT INTO OrderDetail VALUES ('"+ orderID + bookID+"', '"+orderID+"', " +
-                        " '"+bookID+"', "+quantity+", "+total+")";
+            if (conn != null) {
+                float total = price * quantity;
+                String orderDetailID = orderID + bookID;
+                String query = "INSERT INTO OrderDetail VALUES ('" + orderDetailID + "', '" + orderID + "', '" + bookID + "', " + quantity + ", " + total + ")";
                 Statement stm = conn.createStatement();
-                stm.executeUpdate(query) ;
+                if (stm.executeUpdate(query) > 0) {
+                    orderDetail = new OrderDetail(orderDetailID, orderID, bookID, quantity, total);
+                }
                 stm.close();
                 conn.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        return orderDetail;
     }
 
-    public void CheckDuplicateOrderDetail (String orderID, String bookID) {
+    public void CheckDuplicateOrderDetail(String orderID, String bookID) {
 
         OrderService orderDetail = null;
 
-        try{
+        try {
             Connection conn = new GetConnection().getConn();
-            if (conn != null){
+            if (conn != null) {
                 String query = "UPDATE OrderDetail \n" +
                         "Set Quantity=Quantity+1\n" +
-                        "Where OrderID ='"+orderID+"' AND BookID ='"+bookID+"'";
+                        "Where OrderID ='" + orderID + "' AND BookID ='" + bookID + "'";
                 Statement stm = conn.createStatement();
                 stm.executeUpdate(query);
                 stm.close();
@@ -76,28 +81,5 @@ public class OrderDetailService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-    }
-    public void setQuantityOrderDetail (String orderDetailID,  int quantity, float price) {
-        float total = price * quantity;
-        OrderService orderDetail = null;
-
-        try{
-            Connection conn = new GetConnection().getConn();
-            if (conn != null){
-                String query = "UPDATE OrderDetail \n" +
-                        "Set Quantity="+quantity+", TotalUnit = "+total+"\n" +
-                        "Where OrderDetailID ='"+orderDetailID+"'";
-                Statement stm = conn.createStatement();
-                stm.executeUpdate(query);
-
-
-                stm.close();
-                conn.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 }

@@ -14,9 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.example.bookstoreg3.R;
 import com.example.bookstoreg3.model.BookModel;
+import com.example.bookstoreg3.model.Order;
+import com.example.bookstoreg3.model.OrderDetail;
 import com.example.bookstoreg3.service.BookService;
+import com.example.bookstoreg3.service.OrderDetailService;
+import com.example.bookstoreg3.service.OrderService;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ChiTietActivity extends AppCompatActivity {
@@ -39,10 +44,11 @@ public class ChiTietActivity extends AppCompatActivity {
         datePublished = (TextView) findViewById(R.id.tvDatePublished);
         description = (TextView) findViewById(R.id.tvDesc);
         inventory = (TextView) findViewById(R.id.tvInventory);
-        SharedPreferences sharedPreferences = getSharedPreferences("bookID", MODE_PRIVATE);
-        String id = sharedPreferences.getString("id", "");
+        SharedPreferences bookClick = getSharedPreferences("BookClick", MODE_PRIVATE);
+        String bookID = bookClick.getString("id", "");
+        float price = bookClick.getFloat("price", 0);
         BookService service = new BookService();
-        BookModel model = service.getBookByID(id);
+        BookModel model = service.getBookByID(bookID);
         Glide.with(getApplicationContext()).load(model.getBookImg()).into(imgBook);
         bookName.setText(model.getBookName());
         bookPrice.setText(Float.toString(model.getPrice()));
@@ -56,6 +62,16 @@ public class ChiTietActivity extends AppCompatActivity {
         iv_ic_cart_24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences account = getSharedPreferences("Account", MODE_PRIVATE);
+                String userID = account.getString("id", "");
+                OrderService orderService = new OrderService();
+                Order order = orderService.GetOrderExist(userID);
+                if (order == null ) {
+                    order = orderService.CreateOrder(userID);
+                }else {
+                    OrderDetailService orderDetailService = new OrderDetailService();
+                    order.setOrderDetails(orderDetailService.GetAllOrderDetail(order.getOrderID()));
+                }
                 Intent intent = new Intent(ChiTietActivity.this, GioHangActivity.class);
                 startActivity(intent);
             }
@@ -65,6 +81,19 @@ public class ChiTietActivity extends AppCompatActivity {
         btnthemvaogiohang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences account = getSharedPreferences("Account", MODE_PRIVATE);
+                String userID = account.getString("id", "");
+                OrderService orderService = new OrderService();
+                Order order = orderService.GetOrderExist(userID);
+                if (order == null ) {
+                    order = orderService.CreateOrder(userID);
+                }else {
+                    OrderDetailService orderDetailService = new OrderDetailService();
+                    ArrayList<OrderDetail> list = orderDetailService.GetAllOrderDetail(order.getOrderID());
+                    OrderDetail model = orderDetailService.CreateOrderDetail(order.getOrderID(), bookID, 1, price);
+                    list.add(model);
+                    order.setOrderDetails(list);
+                }
                 Intent intent = new Intent(ChiTietActivity.this, GioHangActivity.class);
                 startActivity(intent);
             }

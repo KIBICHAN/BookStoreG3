@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Order {
-    int orderID;
+    String orderID;
     float total;
     Date dateOreder;
     Date dateDelivery;
@@ -15,7 +15,25 @@ public class Order {
     public Order() {
     }
 
-    public Order(int orderID, float total, Date dateOreder, Date dateDelivery, String userID, int status, ArrayList<OrderDetail> orderDetails) {
+    public Order(String orderID, float total, Date dateOreder, String userID, int status, ArrayList<OrderDetail> orderDetails) {
+        this.orderID = orderID;
+        this.total = total;
+        this.dateOreder = dateOreder;
+        this.userID = userID;
+        this.status = status;
+        this.orderDetails = orderDetails;
+    }
+
+    public Order(String orderID, float total, Date dateOreder, Date dateDelivery, String userID, int status) {
+        this.orderID = orderID;
+        this.total = total;
+        this.dateOreder = dateOreder;
+        this.dateDelivery = dateDelivery;
+        this.userID = userID;
+        this.status = status;
+    }
+
+    public Order(String orderID, float total, Date dateOreder, Date dateDelivery, String userID, int status, ArrayList<OrderDetail> orderDetails) {
         this.orderID = orderID;
         this.total = total;
         this.dateOreder = dateOreder;
@@ -25,11 +43,11 @@ public class Order {
         this.orderDetails = orderDetails;
     }
 
-    public int getOrderID() {
+    public String getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
+    public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
 
