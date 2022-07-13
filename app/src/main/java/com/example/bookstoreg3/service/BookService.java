@@ -44,7 +44,7 @@ public class BookService {
         try{
             Connection conn = new GetConnection().getConn();
             if (conn != null){
-                String query = "select * from Book where BookName  LIKE '%"+ BookName +"%') ";
+                String query = "select * from Book where BookName  LIKE '%"+ BookName +"%'";
                 Statement stm = conn.createStatement();
                 ResultSet rs = stm.executeQuery(query);
                 listBookCategory = new ArrayList<>();

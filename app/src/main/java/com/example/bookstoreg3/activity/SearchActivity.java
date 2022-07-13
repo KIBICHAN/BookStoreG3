@@ -44,16 +44,12 @@ public class SearchActivity extends AppCompatActivity {
                     recycleView_search.setLayoutManager(linearLayoutManager);
                     recycleView_search.setAdapter(adapter);
                     recycleView_search.setHasFixedSize(true);
-
-
                     return true;
                 }
                 return false;
             }
         });
         ActionToolBar ();
-
-
     }
 
     private void ActionToolBar () {

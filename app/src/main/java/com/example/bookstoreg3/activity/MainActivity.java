@@ -81,8 +81,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Order order = orderService.GetOrderExist(userID);
                 if (order == null) {
                     order = orderService.CreateOrder(userID);
-                } else {
-                    OrderDetailService orderDetailService = new OrderDetailService();
                 }
                 SharedPreferences orderUser = getSharedPreferences("orderUser", MODE_PRIVATE);
                 SharedPreferences.Editor editor = orderUser.edit();

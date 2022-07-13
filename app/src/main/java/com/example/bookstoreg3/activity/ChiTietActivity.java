@@ -65,9 +65,6 @@ public class ChiTietActivity extends AppCompatActivity {
                     Order order = orderService.GetOrderExist(userID);
                     if (order == null) {
                         order = orderService.CreateOrder(userID);
-                    } else {
-                        OrderDetailService orderDetailService = new OrderDetailService();
-                        order.setOrderDetails(orderDetailService.GetAllOrderDetail(order.getOrderID()));
                     }
                     SharedPreferences orderUser = getSharedPreferences("orderUser", MODE_PRIVATE);
                     SharedPreferences.Editor editor = orderUser.edit();
@@ -87,13 +84,9 @@ public class ChiTietActivity extends AppCompatActivity {
                     Order order = orderService.GetOrderExist(userID);
                     if (order == null) {
                         order = orderService.CreateOrder(userID);
-                    } else {
-                        OrderDetailService orderDetailService = new OrderDetailService();
-                        ArrayList<OrderDetail> list = orderDetailService.GetAllOrderDetail(order.getOrderID());
-                        OrderDetail model = orderDetailService.CreateOrderDetail(order.getOrderID(), bookID, 1, price);
-                        list.add(model);
-                        order.setOrderDetails(list);
                     }
+                    OrderDetailService orderDetailService = new OrderDetailService();
+                    OrderDetail model = orderDetailService.CreateOrderDetail(order.getOrderID(), bookID, 1, price);
                     SharedPreferences orderUser = getSharedPreferences("orderUser", MODE_PRIVATE);
                     SharedPreferences.Editor editor = orderUser.edit();
                     editor.putString("id", order.getOrderID());

@@ -1,6 +1,4 @@
 package com.example.bookstoreg3.database;
-
-
 import android.annotation.SuppressLint;
 import android.os.StrictMode;
 import android.util.Log;
@@ -12,7 +10,7 @@ public class GetConnection {
     Connection conn;
     @SuppressLint("NewApi")
     public Connection getConn() {
-        String ip="10.1.96.243",
+        String ip="192.168.0.189",
         port="1433",
         db="BookManager",
         username="sa",
