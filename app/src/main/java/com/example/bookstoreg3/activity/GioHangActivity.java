@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,9 @@ import java.util.ArrayList;
 public class GioHangActivity extends AppCompatActivity {
     private Button btnmuahang;
     private GioHangAdapter adapter;
+    private TextView total;
     private RecyclerView recyclerviewgiohang;
+    private float totalAll;
     ArrayList<OrderDetail> list;
 
     @Override
@@ -42,6 +45,11 @@ public class GioHangActivity extends AppCompatActivity {
         recyclerviewgiohang.setLayoutManager(linearLayoutManager);
         recyclerviewgiohang.setAdapter(adapter);
         recyclerviewgiohang.setHasFixedSize(true);
+        total = (TextView) findViewById(R.id.txttongtien);
+        for (int i = 0; i < list.size(); i++) {
+            totalAll = totalAll + list.get(i).getTotalUnit();
+        }
+        total.setText(Float.toString(totalAll));
         btnmuahang = (Button) findViewById(R.id.btnmuahang);
         btnmuahang.setOnClickListener(new View.OnClickListener() {
             @Override

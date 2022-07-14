@@ -16,6 +16,7 @@ import com.example.bookstoreg3.adapter.GioHangAdapter.MyHolder;
 import com.example.bookstoreg3.model.BookModel;
 import com.example.bookstoreg3.model.OrderDetail;
 import com.example.bookstoreg3.service.BookService;
+import com.example.bookstoreg3.service.OrderDetailService;
 
 import java.util.ArrayList;
 
@@ -38,9 +39,11 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyHolder
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         BookService bookService = new BookService();
-        int pos = position;
         BookModel book = bookService.getBookByID(cardItemList.get(position).getBookID());
         Glide.with(context).load(book.getBookImg()).into(holder.card_item_image);
+        String orderDetailID = cardItemList.get(position).getOrderDetailID();
+        int quantity = cardItemList.get(position).getQuantity();
+        float price = book.getPrice();
         holder.card_item_name.setText(book.getBookName());
         holder.card_item_price.setText(Float.toString(book.getPrice()));
         holder.card_item_quantity.setText(Integer.toString(cardItemList.get(position).getQuantity()));
@@ -48,15 +51,23 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyHolder
         holder.subtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int quantity = cardItemList.get(pos).getQuantity();
-                holder.card_item_quantity.setText(Integer.toString(quantity));
+                OrderDetailService orderDetailService = new OrderDetailService();
+                if (orderDetailService.UpdateOrderDetail(orderDetailID, quantity - 1, price) == true) {
+
+                }else {
+
+                }
             }
         });
         holder.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int quantity = cardItemList.get(pos).getQuantity();
-                holder.card_item_quantity.setText(Integer.toString(quantity));
+                OrderDetailService orderDetailService = new OrderDetailService();
+                if (orderDetailService.UpdateOrderDetail(orderDetailID, quantity + 1, price) == true) {
+
+                }else {
+
+                }
             }
         });
     }
