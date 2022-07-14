@@ -30,6 +30,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/img_reset"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginRight="5dp"

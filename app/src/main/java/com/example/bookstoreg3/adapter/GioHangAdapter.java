@@ -1,6 +1,7 @@
 package com.example.bookstoreg3.adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +24,11 @@ import java.util.ArrayList;
 public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyHolder> {
     Context context;
     ArrayList<OrderDetail> cardItemList;
-
+    GioHangAdapter adapter;
     public GioHangAdapter(Context context, ArrayList<OrderDetail> cardItemList) {
         this.context = context;
         this.cardItemList = cardItemList;
+        this.adapter = this;
     }
 
     @NonNull
@@ -39,6 +41,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyHolder
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         BookService bookService = new BookService();
+        int pos = position;
         BookModel book = bookService.getBookByID(cardItemList.get(position).getBookID());
         Glide.with(context).load(book.getBookImg()).into(holder.card_item_image);
         String orderDetailID = cardItemList.get(position).getOrderDetailID();
@@ -53,9 +56,14 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyHolder
             public void onClick(View v) {
                 OrderDetailService orderDetailService = new OrderDetailService();
                 if (orderDetailService.UpdateOrderDetail(orderDetailID, quantity - 1, price) == true) {
-
+                    //thanh cong
+                    String id = cardItemList.get(pos).getOrderDetailID();
+                    int qa = orderDetailService.GetOrderDetailByOrderDetailID(id).getQuantity();
+                    holder.card_item_quantity.setText(Integer.toString(qa));
+                    cardItemList.get(pos).setQuantity(qa);
+                    adapter.notifyDataSetChanged();
                 }else {
-
+                    //that bai
                 }
             }
         });
@@ -64,9 +72,14 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyHolder
             public void onClick(View v) {
                 OrderDetailService orderDetailService = new OrderDetailService();
                 if (orderDetailService.UpdateOrderDetail(orderDetailID, quantity + 1, price) == true) {
-
+                    //thanh cong
+                    String id = cardItemList.get(pos).getOrderDetailID();
+                    int qa = orderDetailService.GetOrderDetailByOrderDetailID(id).getQuantity();
+                    holder.card_item_quantity.setText(Integer.toString(qa));
+                    cardItemList.get(pos).setQuantity(qa);
+                    adapter.notifyDataSetChanged();
                 }else {
-
+                    //that bai
                 }
             }
         });
@@ -88,12 +101,12 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyHolder
             super(itemView);
             Context context = itemView.getContext();
             card_item_image = itemView.findViewById(R.id.item_giohang_image);
-            subtract = itemView.findViewById(R.id.item_giohang_tru);
-            add = itemView.findViewById(R.id.item_giohang_cong);
             card_item_name = itemView.findViewById(R.id.item_giohang_tensp);
             card_item_price = itemView.findViewById(R.id.item_giohang_gia);
             card_item_quantity = itemView.findViewById(R.id.item_giohang_soluong);
             card_item_total = itemView.findViewById(R.id.item_giohang_giasp2);
+            subtract = itemView.findViewById(R.id.item_giohang_tru);
+            add = itemView.findViewById(R.id.item_giohang_cong);
         }
     }
 }
