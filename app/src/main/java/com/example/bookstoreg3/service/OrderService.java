@@ -70,6 +70,26 @@ public class OrderService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return model;
+        return null;
+    }
+    public boolean UpdateOrder(String orderID, float total){
+        try{
+            Connection conn = new GetConnection().getConn();
+            if (conn != null) {
+                String query1 = "UPDATE [BookManager].[dbo].[Order] SET Status = 0 , Total = "+total+"   WHERE OrderID = "+ orderID+"";
+                Statement stm = conn.createStatement();
+
+                if (stm.executeUpdate(query1) > 1) {
+                    return true;
+
+                }
+
+                stm.close();
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

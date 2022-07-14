@@ -34,6 +34,7 @@ public class GioHangActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private float totalAll;
     ArrayList<OrderDetail> list;
+    OrderDetailService orderDetailService = new OrderDetailService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class GioHangActivity extends AppCompatActivity {
         recyclerviewgiohang = findViewById(R.id.recyclerviewgiohang);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallBack);
         itemTouchHelper.attachToRecyclerView(recyclerviewgiohang);
-        OrderDetailService orderDetailService = new OrderDetailService();
+
         SharedPreferences orderUser = getSharedPreferences("orderUser", MODE_PRIVATE);
         String orderID = orderUser.getString("id", "");
         list = orderDetailService.GetAllOrderDetail(orderID);
@@ -61,6 +62,7 @@ public class GioHangActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GioHangActivity.this, ThanhToanActivity.class);
+                intent.putExtra("total", totalAll);
                 startActivity(intent);
             }
         });
@@ -84,8 +86,11 @@ public class GioHangActivity extends AppCompatActivity {
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             switch (direction){
                 case ItemTouchHelper.LEFT:
-                    list.remove(viewHolder.getAdapterPosition());
-                    adapter.notifyDataSetChanged();
+                    if (orderDetailService.DeleteOrderDetail(list.get(viewHolder.getAdapterPosition()).getOrderDetailID())){
+                        list.remove(viewHolder.getAdapterPosition());
+
+                        adapter.notifyDataSetChanged();
+                    }
                     break;
                 case ItemTouchHelper.RIGHT:
                     break;

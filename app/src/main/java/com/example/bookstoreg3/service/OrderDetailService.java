@@ -117,13 +117,31 @@ public class OrderDetailService {
         }
         return orderDetail;
     }
-    public boolean UpdateOrderDetail(String orderDetaileID, int quantity, float price) {
+    public boolean UpdateOrderDetail(String orderDetailID, int quantity, float price) {
 
         try {
             Connection conn = new GetConnection().getConn();
             if (conn != null) {
                 float total = quantity * price;
-                String query = "UPDATE OrderDetail Set Quantity = " + quantity + ", TotalUnit = " + total + " Where OrderDetailID = '" + orderDetaileID + "' ";
+                String query = "UPDATE OrderDetail Set Quantity = " + quantity + ", TotalUnit = " + total + " Where OrderDetailID = '" + orderDetailID + "' ";
+                Statement stm = conn.createStatement();
+                if (stm.executeUpdate(query) > 0) {
+                    return true;
+                }
+                stm.close();
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public boolean DeleteOrderDetail(String orderDetailID){
+        try {
+            Connection conn = new GetConnection().getConn();
+            if (conn != null) {
+
+                String query = "DELETE FROM OrderDetail WHERE OrderDetailID = '"+orderDetailID+"'";
                 Statement stm = conn.createStatement();
                 if (stm.executeUpdate(query) > 0) {
                     return true;
