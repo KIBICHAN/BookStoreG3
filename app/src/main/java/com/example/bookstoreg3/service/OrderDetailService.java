@@ -70,6 +70,33 @@ public class OrderDetailService {
         return orderDetail;
     }
 
+    public OrderDetail GetOrderDetailByOrderDetailID(String orderDetailId) {
+        OrderDetail orderDetail = null;
+        try {
+            Connection conn = new GetConnection().getConn();
+            if (conn != null) {
+                String query = "SELECT * From OrderDetail WHERE OrderDetailID = '" + orderDetailId + "'";
+                Statement stm = conn.createStatement();
+                ResultSet rs = stm.executeQuery(query);
+                while (rs.next()) {
+                    orderDetail = new OrderDetail(
+                            rs.getString("OrderDetailID"),
+                            rs.getString("OrderID"),
+                            rs.getString("BookID"),
+                            rs.getInt("Quantity"),
+                            rs.getFloat("TotalUnit")
+                    );
+                }
+                rs.close();
+                stm.close();;
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orderDetail;
+    }
+
     public OrderDetail CreateOrderDetail(String orderID, String bookID, int quantity, float price) {
         OrderDetail orderDetail = null;
         try {
