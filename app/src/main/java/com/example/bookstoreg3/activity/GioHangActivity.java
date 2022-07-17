@@ -93,6 +93,11 @@ public class GioHangActivity extends AppCompatActivity {
                     }
                     break;
                 case ItemTouchHelper.RIGHT:
+                    if (orderDetailService.DeleteOrderDetail(list.get(viewHolder.getAdapterPosition()).getOrderDetailID())){
+                        list.remove(viewHolder.getAdapterPosition());
+
+                        adapter.notifyDataSetChanged();
+                    }
                     break;
             }
 

@@ -61,6 +61,10 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyHolder
                     int qa = orderDetailService.GetOrderDetailByOrderDetailID(id).getQuantity();
                     holder.card_item_quantity.setText(Integer.toString(qa));
                     cardItemList.get(pos).setQuantity(qa);
+                    if (qa == 0) {
+                        orderDetailService.DeleteOrderDetail(orderDetailID);
+                        cardItemList.remove(pos);
+                    }
                     adapter.notifyDataSetChanged();
                 }else {
                     //that bai
