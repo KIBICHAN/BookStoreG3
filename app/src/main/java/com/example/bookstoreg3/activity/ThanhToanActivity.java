@@ -31,8 +31,10 @@ public class ThanhToanActivity extends AppCompatActivity {
         txtPhone= (TextView) findViewById(R.id.txtsodienthoai);
         btnDatHang= (Button) findViewById(R.id.btndathang);
         toolbar = (Toolbar) findViewById(R.id.toobar);
-        Intent intent = getIntent();
-        String totalS = intent.getStringExtra("total");
+        SharedPreferences totalSP = getSharedPreferences("totalMoney", MODE_PRIVATE);
+
+
+        String totalS = totalSP.getString("total", "");
         float total = Float.parseFloat(totalS);
         SharedPreferences sharedPreferences = getSharedPreferences("Account", MODE_PRIVATE);
         SharedPreferences orderUser = getSharedPreferences("orderUser", MODE_PRIVATE);
@@ -46,6 +48,7 @@ public class ThanhToanActivity extends AppCompatActivity {
                 if (orderService.UpdateOrder(orderID,total)){
                     Toast.makeText(ThanhToanActivity.this, "dat hang thanh cong", Toast.LENGTH_SHORT).show();
                     Intent intentH = new Intent(ThanhToanActivity.this, MainActivity.class);
+                    startActivity(intentH);
                 }
             }
         });

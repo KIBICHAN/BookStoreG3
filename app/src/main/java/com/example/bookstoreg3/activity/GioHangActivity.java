@@ -61,8 +61,12 @@ public class GioHangActivity extends AppCompatActivity {
         btnmuahang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences total = getSharedPreferences("totalMoney", MODE_PRIVATE);
+                SharedPreferences.Editor editor = total.edit();
+                editor.putString("total", totalAll+"");
+                editor.commit();
                 Intent intent = new Intent(GioHangActivity.this, ThanhToanActivity.class);
-                intent.putExtra("total", totalAll);
+
                 startActivity(intent);
             }
         });

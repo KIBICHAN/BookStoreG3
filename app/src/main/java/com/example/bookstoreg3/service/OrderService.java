@@ -76,10 +76,10 @@ public class OrderService {
         try{
             Connection conn = new GetConnection().getConn();
             if (conn != null) {
-                String query1 = "UPDATE [BookManager].[dbo].[Order] SET Status = 0 , Total = "+total+"   WHERE OrderID = "+ orderID+"";
+                String query1 = "UPDATE [BookManager].[dbo].[Order] SET Status = 0 , Total = "+total+"   WHERE OrderID = '"+ orderID+"'";
                 Statement stm = conn.createStatement();
 
-                if (stm.executeUpdate(query1) > 1) {
+                if (stm.executeUpdate(query1) > 0) {
                     return true;
 
                 }
